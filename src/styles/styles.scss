@@ -1,31 +1,384 @@
-/* Variables */
-$vin-blue: #5bb7db;
-$vin-green: #60b044;
-$vin-red: #ff0000;
 
-/* Styles */
-body {
-  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  line-height: 1.4em;
-  color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
-  margin: 0 auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  font-smoothing: antialiased;
-  font-weight: 300;
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,200);
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
+@import url(https://fonts.googleapis.com/css?family=Oleo+Script:400,700,900);
+
+
+
+//The Mixin
+//==========
+
+@mixin long-shadow($type, $color, $length, $fadeout: true, $skew: false, $direction: right){
+  $shadow: '';
+  @if $skew == false or $type == text{
+    @if $direction == right {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $color + ',';
+      }
+    }
+    @if $direction == left {
+      @for $i from 0 to $length - 1 {
+        $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $color + ',';
+       }
+      }
+     }
+
+   @if $fadeout == true{
+    @for $i from 1 to $length - 1 {
+      @if $type == text or $skew == false{
+        @if $direction == right{
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' +       rgba($color, 1 - $i / $length) + ',';
+        }
+        @if $direction == left{
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' +       rgba($color, 1 - $i / $length) + ',';
+        }
+      }
+      @if ($type == box) and $skew == true{
+        @if $direction == right {
+          $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+        @if $direction == left {
+          $shadow: $shadow + $i * -1 + 'px ' + $i + 'px 0 ' + $i * .2 + 'px ' + rgba($color, 1 - $i / $length) + ',';
+        }
+      }
+  }
+  $shadow: $shadow + $length + 'px ' + $length + 'px 0 ' + rgba($color, 0);
+ }
+ @if $fadeout == false{
+   @if $skew == true and ( $type == box ){
+     @for $i from 0 to $length - 1 {
+            $shadow: $shadow + $i + 'px ' + $i + 'px 0 ' + $i * .1 + 'px ' + $color + ',';
+      }
+   }
+    $shadow: $shadow + $length + 'px ' + $length + 'px 0 ' + rgba(0,0,0,0);
+ }
+ $shadow: unquote($shadow);
+  @if $type == 'box' {box-shadow: $shadow;}
+  @if $type == 'text' {text-shadow: $shadow;}
 }
 
-td {
-	padding: 12px;
+
+//Colors
+
+$harvard_red: rgba(172, 26, 47, 1);
+$old_gold: rgba(244, 170, 0, 1);
+$phitau_grey: rgba(167, 169, 172, 1);
+
+
+
+* {
+  //font-family: "Raleway", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-h2 {
-	color: $vin-blue;
+.left {
+  float: left;
+}
+.right {
+  float: right;
 }
 
-.savings { color: $vin-green; }
-.loss { color: $vin-red; }
-input.small { width: 46px; }
-td.fuel-savings-label { width: 175px; }
+.white {
+  color: white;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+//INDIVIDUAL ELEMENTS
+
+a {
+  &.dark {
+    color: $phitau_grey;
+  }
+}
+a.styled-inline-link {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	color: white;
+	vertical-align: bottom;
+	text-decoration: none;
+	white-space: nowrap;
+  padding-left: 3px;
+  padding-right: 3px;
+
+  border-bottom: 3px solid rgba(0,0,0,0.2);
+  font-weight: 500;
+  -webkit-transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s;
+
+  &:before, &:after{
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  &:hover, &:focus {
+    border-color: rgba(0,0,0,0);
+    color: white;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+
+*.margin10 {
+  margin: 10px !important;
+}
+
+.main-container{
+  overflow: hidden;
+}
+//Header
+#header-container {
+  //background: url("../images/phi-tau-banner.jpeg") repeat;
+  //background-size: cover;
+  //height: 500px;
+  //background-position-y: 130px;
+  background: transparent;
+  #header {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    h1 {
+      // font-weight: 300;
+      color: white;
+      letter-spacing: 0.25em;
+      font-family: 'Source Sans Pro', serif;
+
+      //background-color: rgba(0,0,0, .5);
+    }
+    .subheader{
+      font-family: 'Source Sans Pro', serif;
+      font-size: 1.5rem;
+      color: #fff;
+      opacity: .7;
+      font-weight: 200;
+    }
+  }
+}
+
+
+section.angled-divider {
+	position: relative;
+	background: $harvard_red;
+	color: #fff;
+	text-align: center;
+  z-index: 1;
+	padding-top: 6em;
+	// background: darken($harvard_red, 11%);
+	&.reversed {
+    transform: scaleX(-1);
+  }
+
+  &:before, &:after {
+    position: absolute;
+  	content: '';
+  	pointer-events: none;
+    top: 0;
+    left: -25%;
+    z-index: -1;
+    width: 150%;
+    height: 75%;
+    background: inherit;
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+  }
+
+  &:before {
+    height: 50%;
+    // background: darken($old_gold, 15%);
+    background: $old_gold;
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -webkit-transform-origin: 3% 0;
+    transform-origin: 3% 0;
+  }
+  &:after {
+    box-shadow: 0px -7px 10px -3px rgba(0,0,0,.45);
+  }
+}
+
+
+
+
+
+
+.section-container{
+  background: $harvard_red;
+  text-align: center;
+
+  &.inverted{
+    background: $old_gold;
+  }
+  padding-bottom: 100px;
+  padding-top: 100px;
+  &.contains-divider {
+    padding-top: 0;
+    padding-bottom: 100px;
+
+  }
+}
+.cursive-header {
+  font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
+  text-shadow: 5px 5px 20px rgba(0,0,0,0.45);
+  color: white;
+  text-align: center;
+  // @include long-shadow($type: text, $color: indigo, $length: 10, $fadeout: true, $skew: false, $direction: right);
+
+}
+.light-header {
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+
+  font-weight: 200;
+  color: white;
+  letter-spacing: 0.4em
+}
+.normal-header {
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  letter-spacing: 0.4em
+}
+.styled-header {
+  font-family: 'Raleway', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+}
+.button.hollow.gold{
+  border: 1px solid $old_gold;
+  color: $old_gold;
+  transition: none;
+
+  &:hover{
+    border-color: darken($old_gold, 20%);
+    color: darken($old_gold, 20%);
+  }
+}
+
+.submit-button {
+  background-color: $old_gold;
+
+  &:hover, &:focus{
+    background-color: darken($old_gold, 10%);
+  }
+  &:active {
+    background-color: darken($old_gold, 20%);
+  }
+}
+
+
+//background-image
+#background-image {
+  background: url(../images/phi-tau-banner-compressed.jpeg) no-repeat center center fixed;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.7);
+  background-size: cover;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+  margin-top: -60px;
+  width: 100%;
+  //background-position-x: -81px;
+  background-position-y: -200px;
+
+}
+
+.top-bar {
+  background-color: $harvard_red !important;
+  height: 60px;
+  width: 100%;
+
+  .left-right-container {
+    height: 60px - 16px;
+    .item-container {
+      display: inline-block;
+      height:inherit;
+      //width: 80px;
+
+      &.left {
+        float: left;
+        margin-left: 20px;
+      }
+
+      &.right {
+        float: right;
+        margin-right: 20px;
+      }
+
+      .item {
+        height:inherit;
+        display: inline-block;
+        .link {
+          margin-right: 20px;
+          display: block;
+          height: inherit;
+          text-align: center;
+          padding-top: 10px;
+          color: white;
+          padding-left: 10px;
+
+          &:active {
+            color: lightgray;
+          }
+          &:after {
+            background-color: transparent;
+            content: "";
+            display: block;
+            position: relative;
+            margin-top: 10px;
+            height: 1px;
+            width: inherit;
+            transition: margin-top .2s, background-color .2s;
+          }
+
+          &:hover:after {
+            background-color: white;
+            margin-top: 0px;
+          }
+
+        }
+        .email-button {
+          margin: 0;
+          margin-top: 1px;
+          float: right;
+          background-color: $old_gold;
+          font-weight:600;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+
+.crest {
+  &.small {
+    width: 20em;
+  }
+}
+
+
+// Utilities
+.delay05{
+  animation-delay: .5s;
+}
+.delay75{
+  animation-delay: .75s;
+}
+.delay1{
+  animation-delay: 1s;
+}
+.delay15{
+  animation-delay: 1.5s;
+}
+.delay2{
+  animation-delay: 2s;
+}

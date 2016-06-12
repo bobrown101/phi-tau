@@ -1,8 +1,10 @@
+// Set up your root reducer here...
 import { combineReducers } from 'redux';
-import fuelSavings from './fuelSavingsReducer';
+import test from './testReducer';
 
 const rootReducer = combineReducers({
-  fuelSavings
+  test
 });
+
 
 export default rootReducer;

@@ -1,15 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Link, IndexLink } from 'react-router';
+import Nav from "./Nav.js";
 
 const App = (props) => {
   return (
-    <div>
-      <IndexLink to="/">Home</IndexLink>
-      {' | '}
-      <Link to="/fuel-savings">Example App</Link>
-      {' | '}
-      <Link to="/about">About</Link>
-      <br/>
+    <div className="small-12 main-container">
+      <Nav/>
       {props.children}
     </div>
   );
