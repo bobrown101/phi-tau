@@ -26,7 +26,7 @@ const HomePage = () => {
           <h2 className="normal-header">The Longest Standing</h2>
           <h2 className="normal-header">Fraternity on Campus</h2>
           <CenteredContainer>
-            <img src="../images/crest.png" className="crest small"/>
+            <img src={require('../images/crest.png')} className="crest small"/>
           </CenteredContainer>
 
       </Section>
