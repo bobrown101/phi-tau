@@ -24,15 +24,6 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
-    "object-assign": "4.1.0",
-    "react": "15.0.2",
-    "react-dom": "15.0.2",
-    "react-redux": "4.4.5",
-    "react-router": "2.4.0",
-    "redux": "3.5.2",
-    "rimraf": "2.5.2"
-  },
-  "devDependencies": {
     "babel-cli": "6.8.0",
     "babel-core": "6.8.0",
     "babel-loader": "6.2.4",
@@ -42,6 +33,16 @@
     "babel-preset-react-hmre": "1.1.1",
     "babel-preset-stage-1": "6.5.0",
     "babel-register": "6.8.0",
+    "object-assign": "4.1.0",
+    "react": "15.0.2",
+    "react-dom": "15.0.2",
+    "react-redux": "4.4.5",
+    "react-router": "2.4.0",
+    "redux": "3.5.2",
+    "rimraf": "2.5.2"
+  },
+  "devDependencies": {
+
     "browser-sync": "2.12.5",
     "chai": "3.5.0",
     "chalk": "1.1.3",
