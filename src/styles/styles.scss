@@ -211,10 +211,45 @@ section.angled-divider {
   border: 1px solid $old_gold;
   color: $old_gold;
   transition: none;
+  -webkit-transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s;
+  &:hover, &:focus{
+    // border-color: darken($old_gold, 20%);
+    // color: darken($old_gold, 20%);
 
-  &:hover{
-    border-color: darken($old_gold, 20%);
-    color: darken($old_gold, 20%);
+    border-color: rgba(0,0,0,0);
+    color: white;
+    background-color: rgba(0,0,0,0.3);
+  }
+}
+
+a.styled-inline-link {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	color: white;
+	vertical-align: bottom;
+	text-decoration: none;
+	white-space: nowrap;
+  padding-left: 3px;
+  padding-right: 3px;
+
+  border-bottom: 3px solid rgba(0,0,0,0.2);
+  font-weight: 500;
+
+
+  &:before, &:after{
+    pointer-events: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+  }
+
+  &:hover, &:focus {
+    border-color: rgba(0,0,0,0);
+    color: white;
+    background-color: rgba(0,0,0,0.3);
   }
 }
 
@@ -237,7 +272,7 @@ section.angled-divider {
   background-size: cover;
   height: 100%;
   z-index: -1;
-  position: absolute;
+  position: fixed;
   margin-top: -60px;
   width: 100%;
   //background-position-x: -81px;
