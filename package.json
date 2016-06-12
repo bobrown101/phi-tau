@@ -78,7 +78,7 @@
     "replace": "0.3.0",
 
     "sinon": "1.17.4",
-    "sinon-chai": "2.8.0",
+    "sinon-chai": "2.8.0"
 
   },
   "keywords": [
