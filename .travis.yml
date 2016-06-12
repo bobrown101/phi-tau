@@ -1,12 +1,14 @@
 language: node_js
 node_js:
-  - "6"
-  - "5"
-  - "5.1"
-  - "4"
-  - "4.2"
-  - "4.1"
-  - "4.0"
+- '6'
+- '5'
+- '4.0'
 after_success:
-  # Send coverage data to coveralls.
-  - npm run test:cover:travis
+- npm run test:cover:travis
+deploy:
+  provider: heroku
+  api_key:
+    secure: J9+4vsnAwBRPXl1vJx0xCMXQolh7NrpbWGDal7xXdZTzqijDbRXMNRvFK+tlZjiAXeSoJ0QF1FJ7wBGedavrL/CxHs6XYMqijWP2UCzawXLaCU1mAZll3po9n/LtNJSgBG+7LGRJujpKB3yTrwUcvp62ihDg+tFUXGRp02ze3+6+GCU0edHg+Ib67J7jMY4NrGXCTCLkhO1p1ZSElOUcfaijmt5Gc5u9dh1tp/Zxv+W1+x4yx2/8QBDHDEexeNCMLg3PusbxGIiwgpnUyA6FX5wW6ic2fKqTUz5V2qQS8KtTOwHUJEMH/Gr9ksXz1uv8UOW4Hv+pwOurXc9jZ0Nfe7Y/srpBYcdkmZtG1+sn8XH2Mv4igDRp5awGBdjMh9QJROo/hdX7WFjqH2oldrVuRy1SquNYsDP7TlxGrPFLW7tqj+lefwmGEvwV/f3XIw0IAkbCgDh3rCwnmimD/wUzqIEFbzOSSX3y/wlvspnPYXbzn0xEXaYwuuYxRB2BXwinuXFmDIgtcowZVvXP5EyVyC2DV3UEjLCFLMgTKqiaVsugJLXqUQrTv7uyjHb0c4KpN1L2ww/bEpLf7I54C4yplM33WQOGZlje3hvfKeJyy34PeeUFlLCfWknV7l5iVllvIU+Gh+V7gksI9ceUdLzNojolaM7dWCtk7ETB6XgcA6Y=
+  app: phi-tau-staging
+  on:
+    repo: bobrown101/phi-tau
