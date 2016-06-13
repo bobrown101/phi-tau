@@ -272,76 +272,142 @@ a.styled-inline-link {
 
 
 .top-bar {
-  background-color: $harvard_red !important;
-  height: 60px;
-  width: 100%;
 
-  .left-right-container {
-    height: 60px - 16px;
-    .item-container {
-      display: inline-block;
-      height:inherit;
-      &.left {
-        float: left;
-        margin-left: 20px;
-      }
 
-      &.right {
-        float: right;
-        margin-right: 20px;
-      }
-
-      .item {
+  /* Mobile nav*/
+    background-color: $harvard_red !important;
+    height: auto;
+    width: 100%;
+    .left-right-container {
+      height: auto;
+      text-align: center;
+      .item-container {
+        display: block;
         height:inherit;
-        display: inline-block;
-        .link {
-          margin-right: 20px;
+        width: 10rem;
+        margin-left: calc(50% - 5rem);
+        .item {
+          height:inherit;
           display: block;
-          height: inherit;
+          height: 3rem;
           text-align: center;
-          padding-top: 10px;
-          color: white;
-          padding-left: 10px;
 
-          &:active {
-            color: lightgray;
-          }
-          &:after {
-            background-color: transparent;
-            content: "";
+          .link {
             display: block;
-            position: relative;
-            margin-top: 10px;
-            height: 1px;
-            width: inherit;
-            transition: margin-top .2s, background-color .2s;
+            height: inherit;
+            text-align: center;
+            padding-top: 10px;
+            color: white;
+
+            &:active {
+              color: lightgray;
+            }
+            &:after {
+              background-color: transparent;
+              content: "";
+              display: block;
+              position: relative;
+              margin-top: 10px;
+              height: 1px;
+              width: inherit;
+              transition: margin-top .2s, background-color .2s;
+            }
+
+            &:hover:after {
+              background-color: white;
+              margin-top: 0px;
+            }
+
           }
+          .email-button {
+            margin: 0;
+            margin-top: 1px;
+            background-color: $old_gold;
+            font-weight:600;
+            color: white;
 
-          &:hover:after {
-            background-color: white;
-            margin-top: 0px;
-          }
-
-        }
-        .email-button {
-          margin: 0;
-          margin-top: 1px;
-          float: right;
-          background-color: $old_gold;
-          font-weight:600;
-          color: white;
-
-          &:hover {
-            border-color: transparent;
-            background-color: rgba(0,0,0,.3);
-            color: #f4aa00;
+            &:hover {
+              border-color: transparent;
+              background-color: rgba(0,0,0,.3);
+              color: #f4aa00;
+            }
           }
         }
       }
     }
-  }
-}
 
+
+  /* Desktop Nav */
+  @media only screen and (min-width: 700px) {
+      background-color: $harvard_red !important;
+      height: 60px;
+      width: 100%;
+
+      .left-right-container {
+        height: 60px - 16px;
+        .item-container {
+          display: inline-block;
+          height:inherit;
+          width: auto;
+          margin-left: 0;
+
+          &.item-container-left {
+            float: left;
+            margin-left: 20px;
+          }
+
+          &.item-container-right {
+            float: right;
+            margin-right: 20px;
+          }
+
+          .item {
+            height:inherit;
+            display: inline-block;
+            .link {
+              margin-right: 20px;
+              display: block;
+              height: inherit;
+              text-align: center;
+              padding-top: 10px;
+              color: white;
+              padding-left: 10px;
+
+              &:active {
+                color: lightgray;
+              }
+              &:after {
+                background-color: transparent;
+                content: "";
+                display: block;
+                position: relative;
+                margin-top: 10px;
+                height: 1px;
+                width: inherit;
+                transition: margin-top .2s, background-color .2s;
+              }
+
+              &:hover:after {
+                background-color: white;
+                margin-top: 0px;
+              }
+
+            }
+            .email-button {
+              margin: 0;
+              margin-top: 1px;
+              float: right;
+              background-color: $old_gold;
+              font-weight:600;
+              color: white;
+            }
+          }
+        }
+      }
+
+  }
+
+}
 
 .crest {
   &.small {
