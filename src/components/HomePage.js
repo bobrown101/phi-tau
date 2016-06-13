@@ -2,7 +2,7 @@ import React from 'react';
 // import {Link} from 'react-router';
 import Header from './Header.js';
 import Section from './Section.js';
-import AngledDivider from './AngledDivider.js';
+// import AngledDivider from './AngledDivider.js';
 import CursiveHeader from './CursiveHeader.js';
 import CenteredContainer from './CenteredContainer.js';
 
@@ -11,8 +11,9 @@ const HomePage = () => {
     <div>
       <Header/>
 
-      <Section containsDivider>
-        <AngledDivider/>
+      {/*<Section containsDivider>*/}
+      <Section >
+        {/*<AngledDivider/>*/}
         <CursiveHeader>Rush Fall 16</CursiveHeader>
         <CenteredContainer>
           <button className="hollow button gold large margin10" href="#">Find Out More</button>

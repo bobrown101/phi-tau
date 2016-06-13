@@ -4,8 +4,6 @@
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script:400,700,900);
 
 
-//Colors
-
 $harvard_red: rgba(172, 26, 47, 1);
 $old_gold: rgba(244, 170, 0, 1);
 $phitau_grey: rgba(167, 169, 172, 1);
@@ -13,7 +11,6 @@ $phitau_grey: rgba(167, 169, 172, 1);
 
 
 * {
-  //font-family: "Raleway", sans-serif;
   font-family: 'Source Sans Pro', sans-serif;
   overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
@@ -44,7 +41,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-//INDIVIDUAL ELEMENTS
 
 a {
   &.dark {
@@ -89,23 +85,30 @@ a.styled-inline-link {
 .main-container{
   overflow: hidden;
 }
-//Header
+
+#background-image {
+  background: url('../images/phi-tau-banner-compressed.jpeg') no-repeat center center fixed;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.7);
+  background-size: cover;
+  height: 100%;
+  z-index: -1;
+  position: fixed;
+  margin-top: -60px;
+  width: 100%;
+  background-position-y: -200px;
+
+}
+
 #header-container {
-  //background: url("../images/phi-tau-banner.jpeg") repeat;
-  //background-size: cover;
-  //height: 500px;
-  //background-position-y: 130px;
-  background: transparent;
+  background: url('../images/phi-tau-banner-compressed.jpeg');
+  background-size: cover;
   #header {
     padding-top: 150px;
     padding-bottom: 150px;
     h1 {
-      // font-weight: 300;
       color: white;
       letter-spacing: 0.25em;
       font-family: 'Source Sans Pro', serif;
-
-      //background-color: rgba(0,0,0, .5);
     }
     .subheader{
       font-family: 'Source Sans Pro', serif;
@@ -125,7 +128,6 @@ section.angled-divider {
 	text-align: center;
   z-index: 1;
 	padding-top: 6em;
-	// background: darken($harvard_red, 11%);
 	&.reversed {
     transform: scaleX(-1);
   }
@@ -148,7 +150,6 @@ section.angled-divider {
 
   &:before {
     height: 50%;
-    // background: darken($old_gold, 15%);
     background: $old_gold;
     -webkit-transform: rotate(-3deg);
     transform: rotate(-3deg);
@@ -160,32 +161,34 @@ section.angled-divider {
   }
 }
 
-
-
-
-
-
 .section-container{
   background: $harvard_red;
   text-align: center;
-
+  padding-bottom: 100px;
+  padding-top: 100px;
   &.inverted{
     background: $old_gold;
   }
-  padding-bottom: 100px;
-  padding-top: 100px;
+
   &.contains-divider {
     padding-top: 0;
     padding-bottom: 100px;
 
   }
 }
+
+.not-found-container {
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $phitau_grey;
+  position: fixed;
+}
 .cursive-header {
   font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
   text-shadow: 5px 5px 20px rgba(0,0,0,0.45);
   color: white;
   text-align: center;
-  // @include long-shadow($type: text, $color: indigo, $length: 10, $fadeout: true, $skew: false, $direction: right);
 
 }
 .light-header {
@@ -214,9 +217,6 @@ section.angled-divider {
   -webkit-transition: background-color 0.3s, border-color 0.3s;
   transition: background-color 0.3s, border-color 0.3s;
   &:hover, &:focus{
-    // border-color: darken($old_gold, 20%);
-    // color: darken($old_gold, 20%);
-
     border-color: rgba(0,0,0,0);
     background-color: rgba(0,0,0,0.3);
     color: $old_gold;
@@ -265,20 +265,7 @@ a.styled-inline-link {
 }
 
 
-//background-image
-#background-image {
-  background: url(../images/phi-tau-banner-compressed.jpeg) no-repeat center center fixed;
-  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.7);
-  background-size: cover;
-  height: 100%;
-  z-index: -1;
-  position: fixed;
-  margin-top: -60px;
-  width: 100%;
-  //background-position-x: -81px;
-  background-position-y: -200px;
 
-}
 
 .top-bar {
   background-color: $harvard_red !important;
@@ -290,8 +277,6 @@ a.styled-inline-link {
     .item-container {
       display: inline-block;
       height:inherit;
-      //width: 80px;
-
       &.left {
         float: left;
         margin-left: 20px;
@@ -361,7 +346,6 @@ a.styled-inline-link {
 }
 
 
-// Utilities
 .delay05{
   animation-delay: .5s;
 }
