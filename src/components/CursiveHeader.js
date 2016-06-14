@@ -6,7 +6,7 @@ const CursiveHeader = React.createClass({
     },
     render () {
         return (
-            <h2 className="cursive-header">{this.props.children}</h2>
+            <h2 className="cursive-header animated fadeIn">{this.props.children}</h2>
         );
     }
 });
