@@ -1,5 +1,5 @@
 import React from 'react';
-// import {Link} from 'react-router';
+import {Link} from 'react-router';
 import Header from '../../components/Header.js';
 import Section from '../../components/Section.js';
 // import AngledDivider from './AngledDivider.js';
@@ -16,7 +16,7 @@ const HomePage = () => {
         {/*<AngledDivider/>*/}
         <CursiveHeader>Rush Fall 16</CursiveHeader>
         <CenteredContainer>
-          <button className="hollow button gold large margin10" href="#">Find Out More</button>
+          <Link to="/rush" className="hollow button gold large margin10" href="#">Find Out More</Link>
         </CenteredContainer>
 
 

@@ -36,6 +36,9 @@ const Nav = React.createClass({
                             <Link to="/rush" className="link">Rush</Link>
                         </div>
                         <div className="item animated fadeIn">
+                            <a href="https://medium.com/@PhiKappaTau_RIT" className="link">Blog</a>
+                        </div>
+                        <div className="item animated fadeIn">
                             <Link to="/contact" className="link">Contact</Link>
                         </div>
                     </div>

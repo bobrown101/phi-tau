@@ -10,8 +10,8 @@ const NotFoundPage = () => {
       {/*<AngledDivider/>*/}
       <CursiveHeader>404</CursiveHeader>
       <CenteredContainer>
-        <h3 className="white styled-header">Had one too many drinks and got lost?</h3>
-        <h3 className="white styled-header">But seriously, you're drunk. Go <Link to="/" className="styled-inline-link">home</Link></h3>
+        <h3 className="white styled-header animated fadeInUp delay05">Had one too many drinks and got lost?</h3>
+        <h3 className="white styled-header animated fadeInUp delay75">But seriously, you're drunk. Go <Link to="/" className="styled-inline-link">home</Link></h3>
       </CenteredContainer>
 
 
