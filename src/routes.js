@@ -8,6 +8,7 @@ import NotFound from './containers/NotFound';
 import Rush from './containers/Rush';
 import LocalHistory from './containers/LocalHistory';
 import NationalHistory from './containers/NationalHistory';
+import ContactPage from './containers/Contact';
 
 export default (
   <Route path="/" component={App}>
@@ -16,7 +17,7 @@ export default (
     <Route path="local-history" component={LocalHistory}/>
     <Route path="national-history" component={NationalHistory}/>
     <Route path="rush" component={Rush}/>
-    <Route path="contact" component={AboutPage}/>
+    <Route path="contact" component={ContactPage}/>
     <Route path="*" component={NotFound}/>
   </Route>
 );
