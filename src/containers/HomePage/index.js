@@ -33,38 +33,44 @@ const HomePage = () => {
       </Section>
 
       <Section>
-        <CenteredContainer><h2 className="normal-header">Contact Us</h2></CenteredContainer>
 
         <div className="row">
-          <div className="large-6 columns text-left">
-            <div className="">
-              <h5 className="white styled-header">President: <a className="styled-inline-link">Mark Eddy</a></h5>
-            </div>
-            <div>
-              <h5 className="white styled-header">Vice-President: <a className="styled-inline-link">Robert Pirdy</a></h5>
-            </div>
-            <div>
-              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link">Connor Obrien</a></h5>
-            </div>
-            <div>
-              <h5 className="white styled-header">Seargant at Arms: <a className="styled-inline-link">Chris Schara</a></h5>
-            </div>
-            <div>
-              <h5 className="white styled-header">Chaplain: <a className="styled-inline-link">Brady Brown</a></h5>
-            </div>
-            <div>
-              <h5 className="white styled-header">Rush Chair: <a className="styled-inline-link">Ian Loomis</a></h5>
-            </div>
-
+          <div className="column small-12">
+            <h2 className="normal-header">Our Creed</h2>
           </div>
-          <div className="large-6 columns">
-            <CenteredContainer>
-              <button className="hollow button gold large margin10 large-6" href="#">Our on-campus house</button>
-              <button className="hollow button gold large margin10 large-6" href="#">Alumni Email</button>
-            </CenteredContainer>
+          <CenteredContainer>
+            <div className="small-12 large-8 large-offset-2 columns text-left">
+              <p>
+                Phi Kappa Tau,
+              </p>
+              <p>
+                By admitting me to membership, has conferred upon me a mark of distinction in which I take just pride.
+              </p>
+              <p>
+                I believe in the spirit of brotherhood for which it stands.
+              </p>
+              <p>
+                I shall strive to attain its ideals, and by so doing to bring to it honor and credit.
+              </p>
+              <p>
+                I shall be loyal to my college and my chapter and shall keep strong my ties to them that I may ever retain the spirit of youth.
+              </p>
+              <p>
+                I shall be a good and loyal citizen.
+              </p>
+              <p>
+                I shall try always to discharge the obligation to others which arises from the fact that I am a fraternity man.
+              </p>
+              <p>
+                Roland Maxwell,
+              </p>
+              <p>
+                November 19, 1950
+              </p>
 
-          </div>
+            </div>
 
+          </CenteredContainer>
 
         </div>
       </Section>

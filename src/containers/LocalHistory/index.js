@@ -57,7 +57,6 @@ const LocalHistory = () => {
 
               <p>
                 In 2001 RIT opened six new free-standing mansions where Gamma Nu was relocated to and where it remains today.
-                TODO - ADD A MAP PICTURE
               </p>
 
             </div>
