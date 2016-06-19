@@ -20,7 +20,7 @@ const NationalHistory = () => {
           <div className="row animated fadeInUp ">
             <div className="columns small-10 medium-8 small-offset-1 medium-offset-2">
               <p>
-                Phi Kappa Tau was founded on March 17, 1906, at Miami University's in Oxford, Ohio.
+                Phi Kappa Tau was founded on March 17, 1906, at Miami University in Oxford, Ohio.
               </p>
 
               <p>
@@ -30,6 +30,8 @@ const NationalHistory = () => {
                 Dwight Ireneus Douglass
                 William Henry Shideler
               </p>
+
+              <img src="../../images/national_founders.jpg" />
 
               <p>
                 There were 21 men who attended the first meeting and they hoped to establish themselves on campus by unifying.
@@ -59,6 +61,8 @@ const NationalHistory = () => {
                 The Miami chapter was then invited to return to the national organization as the Alpha chapter of Phi Kappa Tau.
 
               </p>
+
+              <img src="../../images/crest.png" />
 
             </div>
 

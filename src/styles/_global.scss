@@ -83,7 +83,13 @@ p {
   @media only screen and (min-width: 700px) {
     font-size: 1.25rem !important;
   }
+}
 
+blockquote {
+  color: white !important;
+}
+cite {
+  color: white !important;
 }
 
 *.margin10 {

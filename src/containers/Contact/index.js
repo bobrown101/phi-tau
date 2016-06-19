@@ -31,7 +31,9 @@ const ContactPage = () => {
               <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link">Connor Obrien</a></h5>
               <h5 className="white styled-header">Seargant at Arms: <a className="styled-inline-link">Chris Schara</a></h5>
               <h5 className="white styled-header">Chaplain: <a className="styled-inline-link">Brady Brown</a></h5>
-              <h5 className="white styled-header">Rush Chair: <a className="styled-inline-link">Ian Loomis</a></h5>
+              <h5 className="white styled-header">Advisor: <a className="styled-inline-link">Gary Proud</a></h5>
+              <h5 className="white styled-header">Advisor: <a className="styled-inline-link">Gary Gasper</a></h5>
+
               <br/>
               <h5 className="white styled-header">General Questions?: <a className="styled-inline-link">Email Us!</a></h5>
               <br/>

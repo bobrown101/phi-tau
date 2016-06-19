@@ -41,6 +41,9 @@ const LocalHistory = () => {
                 in downtown Rochester, NY.
               </p>
 
+              <img src="../../images/oldhouse.jpg" />
+
+
               <p>
                 That year also witnessed the group's affiliation with the Phi Kappa Tau Fraternity,
                 and upon completing all of the charting requirements,
@@ -48,16 +51,31 @@ const LocalHistory = () => {
                 - the 85th Chapter at that time.
               </p>
 
+              <hr/>
+
               <p>
                 When the RIT campus moved from downtown Rochester to its suburban campus in 1968,
                 the fraternities gave up their historic Victorian Houses for modern on-campus residences.
-                Gamma Nu''s new home was in the prominent building opposite the Southwest corner of the Sun Dial,
+                Gamma Nu's new home was in the prominent building opposite the Southwest corner of the Sun Dial,
                 the center of student residential life.
               </p>
 
               <p>
                 In 2001 RIT opened six new free-standing mansions where Gamma Nu was relocated to and where it remains today.
               </p>
+
+              <img src="../../images/phi-tau-banner-compressed.jpeg" />
+
+              <hr />
+
+              <p>
+                Today, we are very lucky to have one of our local founders, Gary Proud, serve as an advisor for our chapter.
+                He went on to become a NY State Senate member, retired, and then began advising us in 2004.
+                We appreciate all of the knowledge and contributions you have given to this fraternity Gary, and hope you have many more years to come.
+              </p>
+
+              <img src="../../images/gary_proud.jpg" />
+
 
             </div>
 
