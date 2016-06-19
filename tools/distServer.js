@@ -26,9 +26,14 @@ let history = require('connect-history-api-fallback');
 let express = require('express');
 
 let app = express();
-app.use(history());
-app.use(express.static(__dirname + '/dist'));
 app.set('port', process.env.PORT || 3000);
+app.use(express.static(__dirname + '/dist'));
+app.use(history());
+
+app.get('/', function(req, res){
+  res.render('./dist/index.html');
+});
+
 
 app.listen(app.get('port'), function() {
   console.log('Example app listening on port: ' + app.get('port')); //eslint-disable-line
