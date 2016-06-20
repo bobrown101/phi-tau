@@ -44,13 +44,16 @@ const HomePage = () => {
               <h5 className="white styled-header">Vice-President: <a className="styled-inline-link">Robert Pirdy</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link">Connor Obrien</a></h5>
+              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link">Conor O'Brien</a></h5>
             </div>
             <div>
               <h5 className="white styled-header">Seargant at Arms: <a className="styled-inline-link">Chris Schara</a></h5>
             </div>
             <div>
               <h5 className="white styled-header">Chaplain: <a className="styled-inline-link">Brady Brown</a></h5>
+            </div>
+            <div>
+              <h5 className="white styled-header">Treasurer: <a className="styled-inline-link">Matthew Atwell</a></h5>
             </div>
             <div>
               <h5 className="white styled-header">Rush Chair: <a className="styled-inline-link">Ian Loomis</a></h5>
