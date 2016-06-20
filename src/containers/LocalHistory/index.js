@@ -41,7 +41,7 @@ const LocalHistory = () => {
                 in downtown Rochester, NY.
               </p>
 
-              <img src="../../images/oldhouse.jpg" />
+              <img src={require("../../images/oldhouse.jpg")} />
 
 
               <p>
@@ -64,7 +64,7 @@ const LocalHistory = () => {
                 In 2001 RIT opened six new free-standing mansions where Gamma Nu was relocated to and where it remains today.
               </p>
 
-              <img src="../../images/phi-tau-banner-compressed.jpeg" />
+              <img src={require("../../images/phi-tau-banner-compressed.jpeg")} />
 
               <hr />
 
@@ -74,7 +74,7 @@ const LocalHistory = () => {
                 We appreciate all of the knowledge and contributions you have given to this fraternity Gary, and hope you have many more years to come.
               </p>
 
-              <img src="../../images/gary_proud.jpg" />
+              <img src={require("../../images/gary_proud.jpg")} />
 
 
             </div>

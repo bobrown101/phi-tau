@@ -31,7 +31,7 @@ const NationalHistory = () => {
                 William Henry Shideler
               </p>
 
-              <img src="../../images/national_founders.jpg" />
+              <img src={require("../../images/national_founders.jpg")} />
 
               <p>
                 There were 21 men who attended the first meeting and they hoped to establish themselves on campus by unifying.
@@ -62,7 +62,7 @@ const NationalHistory = () => {
 
               </p>
 
-              <img src="../../images/crest.png" />
+              <img src={require("../../images/crest.png")} />
 
             </div>
 

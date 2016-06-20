@@ -30,10 +30,15 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + '/dist'));
 app.use(history());
 
-app.get('/', function(req, res){
-  res.render('./dist/index.html');
-});
+// compression middleware compresses your server responses which makes them
+// smaller (applies also to assets). You can read more about that technique
+// and other good practices on official Express.js docs http://mxs.is/googmy
+// app.use(compression());
+app.use("/", express.static(__dirname + '/../' + '/dist'));
 
+app.get('*', (req, res) => {
+  res.sendFile(__dirname + '/../' + '/dist/index.html');
+});
 
 app.listen(app.get('port'), function() {
   console.log('Example app listening on port: ' + app.get('port')); //eslint-disable-line

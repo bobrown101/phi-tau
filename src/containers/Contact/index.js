@@ -38,8 +38,8 @@ const ContactPage = () => {
               <h5 className="white styled-header">General Questions?: <a className="styled-inline-link">Email Us!</a></h5>
               <br/>
               <CenteredContainer>
-                  <a href="https://twitter.com/PhiKappaTau_RIT" ><img style={imgStyle} src="../../images/twitter.png" /></a>
-                  <a href="https://www.instagram.com/PhiKappaTau_RIT/" ><img style={imgStyle} src="../../images/instagram.png" /></a>
+                  <a href="https://twitter.com/PhiKappaTau_RIT" ><img style={imgStyle} src={require("../../images/twitter.png")} /></a>
+                  <a href="https://www.instagram.com/PhiKappaTau_RIT/" ><img style={imgStyle} src={require("../../images/instagram.png")} /></a>
               </CenteredContainer>
               <br/>
               <iframe style={mapStyle} src="https://www.google.com/maps/embed/v1/place?q=604+Charters+Way,+Rochester,+NY,+United+States&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
