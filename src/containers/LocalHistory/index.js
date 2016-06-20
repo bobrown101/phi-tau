@@ -31,7 +31,7 @@ const LocalHistory = () => {
                 fellow men on campus without the negative hazing practices so prevelent at the time.
               </p>
               <p>
-                The four men that founded Kappa Phi Omega are: Bob Mitchell, Ron Sick, John Helms, and Gary Proud.
+                The four men that founded Kappa Phi Omega were: Bob Mitchell, Ron Sick, John Helms, and Gary Proud.
               </p>
 
               <p>

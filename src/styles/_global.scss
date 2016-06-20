@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,200);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script:400,700,900);
+@import url(https://fonts.googleapis.com/css?family=Glegoo:400,700);
 
 
 body {
@@ -14,8 +15,6 @@ body {
   background-color: $primary_color !important;
 }
 
-
-
 * {
   font-family: 'Source Sans Pro', sans-serif;
   overflow-scrolling: touch;
@@ -23,6 +22,41 @@ body {
 
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  line-height: 1.4; // Base line height
+}
+
+p {
+  font-size: 1.25em; // Base font size
+  margin-bottom: 1.75rem; // Base vertical spacing: (1.4 * 1.25) = 1.75
+}
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 3.5rem; // Double the base value for a larger gap (1.75 * 2) = 3.5
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 1.75rem;
+}
+
+hr {
+  margin-bottom: 1.75rem;
+}
+
+img {
+  margin-bottom: 1.75rem;
+}
 
 .left {
   float: left;
@@ -34,9 +68,7 @@ body {
 .white {
   color: white;
 }
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Source Sans Pro', sans-serif;
-}
+
 
 
 a {
@@ -78,6 +110,7 @@ a.styled-inline-link {
 p {
   text-align: left;
   font-size: 1.0625rem !important;
+  font-family: 'Glegoo', serif;
   color: white;
 
   @media only screen and (min-width: 700px) {
@@ -139,47 +172,6 @@ cite {
   }
 }
 
-
-section.angled-divider {
-  position: relative;
-  background: $primary_color;
-  color: #fff;
-  text-align: center;
-  z-index: 1;
-  padding-top: 6em;
-  &.reversed {
-    transform: scaleX(-1);
-  }
-
-  &:before, &:after {
-    position: absolute;
-    content: '';
-    pointer-events: none;
-    top: 0;
-    left: -25%;
-    z-index: -1;
-    width: 150%;
-    height: 75%;
-    background: inherit;
-    -webkit-transform: rotate(-2deg);
-    transform: rotate(-2deg);
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-  }
-
-  &:before {
-    height: 50%;
-    background: $secondary_color;
-    -webkit-transform: rotate(-3deg);
-    transform: rotate(-3deg);
-    -webkit-transform-origin: 3% 0;
-    transform-origin: 3% 0;
-  }
-  &:after {
-    box-shadow: 0px -7px 10px -3px rgba(0,0,0,.45);
-  }
-}
-
 .section-container{
   background: $primary_color;
   text-align: center;
@@ -194,14 +186,6 @@ section.angled-divider {
     padding-bottom: 100px;
 
   }
-}
-
-.not-found-container {
-  z-index: 0;
-  height: 100%;
-  width: 100%;
-  background-color: $phitau_grey;
-  position: fixed;
 }
 .cursive-header {
   font: 400 100px/1.3 'Oleo Script', Helvetica, sans-serif;
