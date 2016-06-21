@@ -20,14 +20,10 @@ const LocalHistory = () => {
           <div className="row animated fadeInUp ">
             <div className="columns small-10 medium-8 small-offset-1 medium-offset-2">
               <p>
-                Before we were Phi Kappa Tau, we were a local fraternity called Kappa Phi Omega
+                Before we were Phi Kappa Tau, we were a local fraternity called Kappa Phi Omega.
               </p>
               <p>
-                Kappa Phi Omega was born on November 19, 1962, to increase the Greek opportunities
-                for men at Rochester Institute of Technology
-              </p>
-              <p>
-                It was founded by a dedicated group of freshman Buisness majors who wanted to offer brotherhood and fraternal life to
+                It was founded by a dedicated group of freshman Buisness majors on November 19, 1962 who wanted to offer brotherhood and fraternal life to
                 fellow men on campus without the negative hazing practices so prevelent at the time.
               </p>
               <p>
@@ -35,7 +31,6 @@ const LocalHistory = () => {
               </p>
 
               <p>
-                The fraternity set about recruiting new members and becoming involved in campus activities.
                 By 1964-65 Kappa Phi Omega captured top scholarship honors among fraternities,
                 and acquired and improved a Chapter House on the old campus at 141 S. Plymouth Ave.,
                 in downtown Rochester, NY.
@@ -70,7 +65,7 @@ const LocalHistory = () => {
 
               <p>
                 Today, we are very lucky to have one of our local founders, Gary Proud, serve as an advisor for our chapter.
-                He went on to become a NY State Senate member, retired, and then began advising us in 2004.
+                He went on to have a successful career - even becoming a NY State Senate member. He began advising us in 2004.
                 We appreciate all of the knowledge and contributions you have given to this fraternity Gary, and hope you have many more years to come.
               </p>
 

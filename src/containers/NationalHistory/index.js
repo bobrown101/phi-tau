@@ -24,18 +24,17 @@ const NationalHistory = () => {
               </p>
 
               <p>
-                The four honored founders are:
-                Taylor Albert Borradaile
-                Clinton Dewitt Boyd
-                Dwight Ireneus Douglass
-                William Henry Shideler
+                The four honored founders were:
+                Taylor Albert Borradaile,
+                Clinton Dewitt Boyd,
+                Dwight Ireneus Douglass,
+                William Henry Shideler,
               </p>
 
               <img src={require("../../images/national_founders.jpg")} />
 
               <p>
-                There were 21 men who attended the first meeting and they hoped to establish themselves on campus by unifying.
-                They agreed on the name Non-Fraternity Association because according to Founder Shideler,
+                There were 21 men who attended the first meeting. They agreed on the name Non-Fraternity Association because according to Founder Shideler,
                 “A political combination of fraternities had taken charge of essentially all activities within the reach of the student body.”
               </p>
 
@@ -55,11 +54,10 @@ const NationalHistory = () => {
               </p>
 
               <p>
-                On March 9, 1916, the Miami chapter withdrew from the National Phrenocon
+                On March 9, 1916, the Miami chapter withdrew from the National Phrenocon organization
                 in order to become a Greek-letter fraternity. They adopted the name Phi Kappa Tau,
                 and the remaining five Phrenocon chapters agreed to the name change in December of that year.
                 The Miami chapter was then invited to return to the national organization as the Alpha chapter of Phi Kappa Tau.
-
               </p>
 
               <img src={require("../../images/crest.png")} />
