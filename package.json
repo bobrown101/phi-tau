@@ -14,7 +14,7 @@
     "build:html": "babel-node tools/buildHtml.js",
     "prebuild": "npm run clean-dist && npm run build:html",
     "build": "NODE_ENV=production babel-node tools/build.js && npm run server:prod",
-    "server:dev": "NODE_ENV=devlopment babel-node tools/server.js",
+    "server:dev": "NODE_ENV=development babel-node tools/server.js",
     "server:prod": "NODE_ENV=production babel-node tools/server.js",
     "test": "mocha tools/testSetup.js \"src/**/*.spec.js\" --reporter spec",
     "test:cover": "babel-node node_modules/isparta/bin/isparta cover --root src --report html node_modules/mocha/bin/_mocha -- --require ./tools/testSetup.js \"src/**/*.spec.js\" --reporter progress",
