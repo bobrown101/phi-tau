@@ -31,22 +31,22 @@ body {
 }
 
 p {
-  font-size: 1.25em !important; // Base font size
+  font-size: 1.25em; // Base font size
   margin-bottom: 1.75rem !important; // Base vertical spacing: (1.4 * 1.25) = 1.75
 }
 
 h1 {
-  font-size: 3em !important;
+  font-size: 3em;
   margin-bottom: 3.5rem !important; // Double the base value for a larger gap (1.75 * 2) = 3.5
 }
 
 h2 {
-  font-size: 2em !important;
+  font-size: 2em;
   margin-bottom: 1.75rem !important;
 }
 
 h3 {
-  font-size: 1.5em !important;
+  font-size: 1.5em;
   margin-bottom: 1.75rem !important; // Base vertical spacing: (1.4 * 1.25) = 1.75
 }
 
