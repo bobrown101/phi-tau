@@ -27,35 +27,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  line-height: 1.4; // Base line height
+  line-height: 1.4 !important; // Base line height
 }
 
 p {
-  font-size: 1.25em; // Base font size
-  margin-bottom: 1.75rem; // Base vertical spacing: (1.4 * 1.25) = 1.75
+  font-size: 1.25em !important; // Base font size
+  margin-bottom: 1.75rem !important; // Base vertical spacing: (1.4 * 1.25) = 1.75
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 3.5rem; // Double the base value for a larger gap (1.75 * 2) = 3.5
+  font-size: 3em !important;
+  margin-bottom: 3.5rem !important; // Double the base value for a larger gap (1.75 * 2) = 3.5
 }
 
 h2 {
-  font-size: 2em;
-  margin-bottom: 1.75rem;
+  font-size: 2em !important;
+  margin-bottom: 1.75rem !important;
 }
 
 h3 {
-  font-size: 1.5em;
-  margin-bottom: 1.75rem;
+  font-size: 1.5em !important;
+  margin-bottom: 1.75rem !important; // Base vertical spacing: (1.4 * 1.25) = 1.75
 }
 
 hr {
-  margin-bottom: 1.75rem;
+  margin-top: 0 !important;
+  margin-bottom: 1.75rem !important; // Base vertical spacing: (1.4 * 1.25) = 1.75
 }
 
 img {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.75rem !important; // Base vertical spacing: (1.4 * 1.25) = 1.75
 }
 
 .left {
