@@ -33,7 +33,7 @@ const ContactPage = () => {
               <h5 className="white styled-header">Chaplain: <a className="styled-inline-link">Brady Brown</a></h5>
               <h5 className="white styled-header">Treasurer: <a className="styled-inline-link">Matthew Atwell</a></h5>
               <h5 className="white styled-header">Advisor: <a className="styled-inline-link">Gary Proud</a></h5>
-              <h5 className="white styled-header">Advisor: <a className="styled-inline-link">Gary Gasper</a></h5>
+              <h5 className="white styled-header">Advisor: <a className="styled-inline-link">Dave Panish</a></h5>
 
               <br/>
               <h5 className="white styled-header">General Questions?: <a className="styled-inline-link">Email Us!</a></h5>
