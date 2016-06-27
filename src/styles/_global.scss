@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900,200);
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
 @import url(https://fonts.googleapis.com/css?family=Oleo+Script:400,700,900);
 @import url(https://fonts.googleapis.com/css?family=Glegoo:400,700);
 
@@ -110,13 +109,13 @@ a.styled-inline-link {
 
 p {
   text-align: left;
-  font-size: 1.0625rem !important;
+  font-size: 1.25rem !important;
   font-family: 'Glegoo', serif;
   color: white;
-
-  @media only screen and (min-width: 700px) {
-    font-size: 1.25rem !important;
-  }
+  //
+  // @media only screen and (min-width: 700px) {
+  //   font-size: 1.25rem !important;
+  // }
 }
 
 blockquote {
@@ -201,7 +200,6 @@ cite {
 
 }
 .light-header {
-  font-family: 'Raleway', sans-serif;
   font-family: 'Source Sans Pro', sans-serif;
 
   font-weight: 200;
@@ -209,13 +207,11 @@ cite {
   letter-spacing: 0.4em
 }
 .normal-header {
-  font-family: 'Raleway', sans-serif;
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   letter-spacing: 0.4em
 }
 .styled-header {
-  font-family: 'Raleway', sans-serif;
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
 }

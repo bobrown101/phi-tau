@@ -44,7 +44,7 @@ const Nav = React.createClass({
                     </div>
                     <div className="item-container item-container-right">
                         <div className="item animated fadeIn">
-                            <a href="#" className="button email-button">Alumni Email</a>
+                            <a href="http://eepurl.com/bfz215" className="button email-button">Alumni Email</a>
                         </div>
                     </div>
                 </div>
