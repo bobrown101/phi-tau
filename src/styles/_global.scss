@@ -362,66 +362,69 @@ a.styled-inline-link {
     display: none;
   }
 
-  &.open {
-    .left-right-container {
-      height: auto;
-      text-align: center;
-      display: block;
-      .item-container {
+  @media only screen and (max-width: 700px){
+    &.open {
+      .left-right-container {
+        height: auto;
+        text-align: center;
         display: block;
-        height:inherit;
-        width: 10rem;
-        margin-left: calc(50% - 5rem);
-        .item {
-          height:inherit;
+        .item-container {
           display: block;
-          height: 3rem;
-          text-align: center;
-
-          .link {
+          height:inherit;
+          width: 10rem;
+          margin-left: calc(50% - 5rem);
+          .item {
+            height:inherit;
             display: block;
-            height: inherit;
+            height: 3rem;
             text-align: center;
-            padding-top: 10px;
-            color: white;
 
-            &:active {
-              color: lightgray;
-            }
-            &:after {
-              background-color: transparent;
-              content: "";
+            .link {
               display: block;
-              position: relative;
-              margin-top: 10px;
-              height: 1px;
-              width: inherit;
-              transition: margin-top .2s, background-color .2s;
+              height: inherit;
+              text-align: center;
+              padding-top: 10px;
+              color: white;
+
+              &:active {
+                color: lightgray;
+              }
+              &:after {
+                background-color: transparent;
+                content: "";
+                display: block;
+                position: relative;
+                margin-top: 10px;
+                height: 1px;
+                width: inherit;
+                transition: margin-top .2s, background-color .2s;
+              }
+
+              &:hover:after {
+                background-color: white;
+                margin-top: 0px;
+              }
+
             }
+            .email-button {
+              margin: 0;
+              margin-top: 1px;
+              background-color: $secondary_color;
+              font-weight:600;
+              color: white;
 
-            &:hover:after {
-              background-color: white;
-              margin-top: 0px;
-            }
-
-          }
-          .email-button {
-            margin: 0;
-            margin-top: 1px;
-            background-color: $secondary_color;
-            font-weight:600;
-            color: white;
-
-            &:hover {
-              border-color: transparent;
-              background-color: rgba(0,0,0,.3);
-              color: #f4aa00;
+              &:hover {
+                border-color: transparent;
+                background-color: rgba(0,0,0,.3);
+                color: #f4aa00;
+              }
             }
           }
         }
       }
-    }
 
+
+    }
 
   }
 

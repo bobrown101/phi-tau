@@ -24,27 +24,27 @@ const Nav = React.createClass({
                 <div className="left-right-container">
                     <div className="item-container item-container-left">
                         <div className="item animated fadeIn">
-                            <IndexLink to="/" className="link">Home</IndexLink>
+                            <IndexLink to="/" onClick={this.toggleHamburger} className="link">Home</IndexLink>
                         </div>
                         <div className="item animated fadeIn">
-                            <Link to="/local-history" className="link">Local History</Link>
+                            <Link to="/local-history" onClick={this.toggleHamburger} className="link">Local History</Link>
                         </div>
                         <div className="item animated fadeIn">
-                            <Link to="/national-history" className="link">National History</Link>
+                            <Link to="/national-history" onClick={this.toggleHamburger} className="link">National History</Link>
                         </div>
                         <div className="item animated fadeIn">
-                            <Link to="/rush" className="link">Rush</Link>
+                            <Link to="/rush" onClick={this.toggleHamburger} className="link">Rush</Link>
                         </div>
                         <div className="item animated fadeIn">
-                            <a href="https://medium.com/@PhiKappaTau_RIT" className="link">Blog</a>
+                            <a href="https://medium.com/@PhiKappaTau_RIT" onClick={this.toggleHamburger} className="link">Blog</a>
                         </div>
                         <div className="item animated fadeIn">
-                            <Link to="/contact" className="link">Contact</Link>
+                            <Link to="/contact" onClick={this.toggleHamburger} className="link">Contact</Link>
                         </div>
                     </div>
                     <div className="item-container item-container-right">
                         <div className="item animated fadeIn">
-                            <a href="http://eepurl.com/bfz215" className="button email-button">Alumni Email</a>
+                            <a href="http://eepurl.com/bfz215" onClick={this.toggleHamburger} className="button email-button">Alumni Email</a>
                         </div>
                     </div>
                 </div>
