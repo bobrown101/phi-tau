@@ -11,9 +11,7 @@ let app = express();
 app.set('port', process.env.PORT || 3000);
 app.use(history());
 
-
 if ( app.get('env') === 'development' ) {
-
   console.log(chalkProcessing("Running server in devlopment mode"));
   const bundler = webpack(config);
   // app.use(express.static('/src'));
