@@ -28,7 +28,7 @@ const NationalHistory = () => {
                 Taylor Albert Borradaile,
                 Clinton Dewitt Boyd,
                 Dwight Ireneus Douglass,
-                William Henry Shideler,
+                and William Henry Shideler.
               </p>
 
               <img src={require("../../images/national_founders.jpg")} />
@@ -47,10 +47,10 @@ const NationalHistory = () => {
                 Phrenocon expanded in 1911 when a second chapter formed at Ohio University.
                 Additional chapters were established at
 
-                Ohio State University
-                Centre College
-                Mount Union College
-                University of Illinois
+                Ohio State University,
+                Centre College,
+                Mount Union College,
+                and University of Illinois.
               </p>
 
               <p>

@@ -125,6 +125,15 @@ cite {
   color: white !important;
 }
 
+@include placeholder {
+    font-style:italic;
+    color: $phitau_grey !important;
+    opacity: 1;
+    font-weight:normal;
+}
+
+
+
 *.margin10 {
   margin: 10px !important;
 }
@@ -151,7 +160,7 @@ cite {
 }
 
 #header-container {
-  background: url('../images/phi-tau-banner-compressed.jpeg');
+  background: url('../images/phi-tau-banner.jpg');
   background-size: cover;
   background-position: center;
   #header {
@@ -269,11 +278,41 @@ a.styled-inline-link {
   }
 }
 
-
-
-
 .crest {
   &.small {
     width: 20em;
   }
+}
+
+.user-list {
+  // border: 1px solid $old_gold;
+}
+
+.user-list-item {
+  border-bottom: 1px solid $old_gold;
+  display: block;
+}
+
+.user-list-name {
+  display: inline-block;
+  color: $old_gold;
+  height: 2em;
+  line-height: 2em;
+}
+
+.user-attendance-options {
+  display: inline-block;
+  height: 2em;
+}
+
+.user-list-radio-button {
+  margin: .5em;
+  // margin-right: 1em;
+}
+
+.user-list-label {
+  display: inline-block;
+  height: 2em;
+  margin: 0;
+  margin-right: 1em;
 }

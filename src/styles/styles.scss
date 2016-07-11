@@ -12,6 +12,7 @@ $primary_color: $harvard_red;
 $secondary_color: $old_gold;
 // $primary_color: $kelly_green;
 // $secondary_color: white;
+@import "mixins";
 @import "global";
 @import "nav";
 //

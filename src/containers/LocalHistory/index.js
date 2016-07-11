@@ -65,7 +65,7 @@ const LocalHistory = () => {
 
               <p>
                 Today, we are very lucky to have one of our local founders, Gary Proud, serve as an advisor for our chapter.
-                He went on to have a successful career - even becoming a NY State Senate member. He began advising us in 2004.
+                He went on to have a successful career - even becoming a seven-term NY State Assemblyman. He began advising us in 2004.
                 We appreciate all of the knowledge and contributions you have given to this fraternity Gary, and hope you have many more years to come.
               </p>
 

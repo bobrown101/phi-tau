@@ -47,7 +47,7 @@ const HomePage = () => {
               <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link" href="mailto:conormobrien16@gmail.com">Conor O'Brien</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">Seargant at Arms: <a className="styled-inline-link" href="mailto:chris.schara@hotmail.com">Chris Schara</a></h5>
+              <h5 className="white styled-header">Sergeant at Arms: <a className="styled-inline-link" href="mailto:chris.schara@hotmail.com">Chris Schara</a></h5>
             </div>
             <div>
               <h5 className="white styled-header">Chaplain: <a className="styled-inline-link" href="mailto:bobrown101@gmail.com">Brady Brown</a></h5>
