@@ -124,7 +124,7 @@ let AdminForm = React.createClass({
                 <tr key="create_new_user_item">
                   <td><input type="text" placeholder="Event Name" onChange={this.handleEventNameChange}/></td>
                   <td><input type="text" placeholder="phone number" onChange={this.handlePhoneNumberChange}/></td>
-                  <td><a className="hollow button gold small-12 medium" onClick={this.createNewEvent}>Create Event and Take Attendance</a></td>
+                  <td><a className="hollow button gold small-12 medium" onClick={this.createNewEvent}>Create Event</a></td>
                 </tr>
 
             </tbody>
