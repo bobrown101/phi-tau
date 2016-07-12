@@ -63,7 +63,6 @@ let AdminForm = React.createClass({
         <CursiveHeader>Admin</CursiveHeader>
         <CenteredContainer>
           <h3 className="white styled-header">Rescouncil Members</h3>
-
             <table className="stack">
               <thead>
                 <tr>
@@ -74,7 +73,6 @@ let AdminForm = React.createClass({
                 </tr>
               </thead>
               <tbody>
-
                   {this.props.userList.map(function(listValue){
                     return (
                       <tr key={listValue._id}>
@@ -92,13 +90,11 @@ let AdminForm = React.createClass({
                     <td><input type="text" placeholder="email" onChange={this.handleEmailChange}/></td>
                     <td><button className="hollow button gold medium" onClick={this.addNewUser} >Submit New Person</button></td>
                   </tr>
-
               </tbody>
             </table>
 
-
           <hr/>
-
+          
           <h3 className="white styled-header">Events</h3>
 
           <table className="stack">
