@@ -59,7 +59,6 @@ let AdminForm = React.createClass({
     return (
 
       <Section >
-        {/*<AngledDivider/>*/}
         <CursiveHeader>Admin</CursiveHeader>
         <CenteredContainer>
           <h3 className="white styled-header">Rescouncil Members</h3>
