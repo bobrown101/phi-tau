@@ -31,7 +31,6 @@ export function attempt_get_users() {
   };
 }
 
-
 export function get_users_success(users){
   return {
     type: types.GET_USERS_SUCCESS,
@@ -100,7 +99,6 @@ export function add_user_failure(message){
 export function attempt_get_events(){
   return (dispatch, getState) => { // eslint-disable-line
     // return dispatch(fetchPosts(subreddit))
-    console.log("attempting to get events");
     axios({
       method: 'post',
       url: '/api/v1/getEvents',
@@ -109,8 +107,6 @@ export function attempt_get_events(){
       }
     })
     .then(function (response) {
-      console.log("attempt_get_events reponse");
-      console.log(response);
       if(response.data.success){
         dispatch(get_events_success(response.data.events));
         // dispatch(add_user_success(response.data.users));
@@ -145,12 +141,10 @@ export function get_events_failure(error){
   };
 }
 
-
 export function attempt_create_event(event_name){
   // console.log("event name: " + event_name);
   return (dispatch, getState) => { // eslint-disable-line
     // return dispatch(fetchPosts(subreddit))
-    console.log("attempting to create event");
     axios({
       method: 'post',
       url: '/api/v1/createEvent',
@@ -162,8 +156,6 @@ export function attempt_create_event(event_name){
       }
     })
     .then(function (response) {
-      console.log("attempt_create_event reponse");
-      console.log(response);
       if(response.data.success){
         // console.log('TODO - create event success');
 
@@ -194,6 +186,110 @@ export function create_event_success(event){
 export function create_event_failure(error){
   return {
     type: types.CREATE_EVENT_FAILURE,
+    success: false,
+    error: error
+  };
+}
+
+export function attempt_submit_attendance(eventID, usersPresent, usersAbsent, usersExcused, usersCoop){
+  // console.log("event name: " + event_name);
+  console.log(eventID);
+  console.log(usersPresent);
+  console.log(usersAbsent);
+  console.log(usersExcused);
+  console.log(usersCoop);
+  return (dispatch, getState) => { // eslint-disable-line
+    // return dispatch(fetchPosts(subreddit))
+    axios({
+      method: 'post',
+      url: '/api/v1/submitAttendance',
+      headers: {
+        'x-access-token': getState().authentication.token
+      },
+      data: {
+        eventID: eventID,
+        usersPresent: usersPresent,
+        usersAbsent: usersAbsent,
+        usersExcused: usersExcused,
+        usersCoop: usersCoop
+      }
+    })
+    .then(function (response) {
+      if(response.data.success){
+
+        dispatch(submit_attendance_success());
+      }else{
+        dispatch(submit_attendance_failure(response.data.message));
+
+      }
+    })
+    .catch(function (error) {
+      console.log("error submit_attendance: ");
+      console.log(error);
+      // dispatch(login_failure(error));
+    });
+  };
+}
+
+export function submit_attendance_success(){
+  return {
+    type: types.SUBMIT_ATTENDANCE_SUCCESS,
+    success: true
+  };
+}
+
+export function submit_attendance_failure(error){
+  return {
+    type: types.SUBMIT_ATTENDANCE_FAILURE,
+    success: false,
+    error: error
+  };
+}
+
+export function attempt_set_user_attendance(eventID, user, attendance){
+  // console.log("event name: " + event_name);
+  return (dispatch, getState) => { // eslint-disable-line
+    // return dispatch(fetchPosts(subreddit))
+    axios({
+      method: 'post',
+      url: '/api/v1/setUserAttendance',
+      timeout: 3000,
+      headers: {
+        'x-access-token': getState().authentication.token
+      },
+      data: {
+        eventID,
+        user,
+        attendance
+      }
+    })
+    .then(function (response) {
+      if(response.data.success){
+        dispatch(set_user_attendance_success());
+        dispatch(attempt_get_events());
+      }else{
+        dispatch(set_user_attendance_failure(response.data.message));
+
+      }
+    })
+    .catch(function (error) {
+      console.log("error set_user_attendance: ");
+      console.log(error);
+      // dispatch(login_failure(error));
+    });
+  };
+}
+
+export function set_user_attendance_success(){
+  return {
+    type: types.SET_USER_ATTENDANCE_SUCCESS,
+    success: true
+  };
+}
+
+export function set_user_attendance_failure(error){
+  return {
+    type: types.SET_USER_ATTENDANCE_FAILURE,
     success: false,
     error: error
   };
@@ -307,56 +403,3 @@ export function notify_users_failure(error){
     error: error
   };
 }
-
-//
-//
-// export function get_rescouncil() {
-//   return (dispatch, getState) => { // eslint-disable-line
-//     // return dispatch(fetchPosts(subreddit))
-//     axios({
-//       method: 'get',
-//       url: '/api/v1/get_rescouncil'
-//     })
-//
-//     .then(function (response) {
-//       console.log(response);
-//
-//       // if(response.data.success){
-//       //   console.log("storing accessToken");
-//       //   sessionStorage.setItem('accessToken', response.data.token);
-//       //
-//       //   if(getState().routing.locationBeforeTransitions.state &&
-//       //     getState().routing.locationBeforeTransitions.state.nextPathname){
-//       //
-//       //     const nextPathname = getState().routing.locationBeforeTransitions.state.nextPathname;
-//       //     dispatch(push(nextPathname));
-//       //
-//       //   }else{
-//       //     dispatch(push('/admin-dashboard'));
-//       //
-//       //   }
-//       //
-//       //
-//       //   return {
-//       //     type: types.LOGIN,
-//       //     success: true
-//       //   };
-//       // }else{
-//         // return {
-//         //   type: types.LOGIN,
-//         //   success: false
-//         // };
-//       // }
-//
-//     })
-//     .catch(function (error) {
-//       return {
-//         type: types.GET_RESCOUNCIL,
-//         success: false,
-//         error: error
-//       };
-//     });
-//
-//   };
-//
-// }

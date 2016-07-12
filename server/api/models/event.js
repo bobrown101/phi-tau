@@ -7,5 +7,9 @@ module.exports = mongoose.model('CustomEvent', new Schema({
     eventTime: Date,
     eventName: String,
     users: [],
+    usersPresent: [],
+    usersAbsent: [],
+    usersExcused: [],
+    usersCoop: [],
     polls: []
 }));

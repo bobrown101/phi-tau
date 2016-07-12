@@ -30,6 +30,8 @@ app.post('/api/v1/addUser', api.authenticateRoute, api.addUser);
 app.post('/api/v1/getUsers', api.authenticateRoute, api.getUsers);
 app.post('/api/v1/createEvent', api.authenticateRoute, api.createEvent);
 app.post('/api/v1/getEvents', api.authenticateRoute, api.getEvents);
+app.post('/api/v1/setUserAttendance', api.authenticateRoute, api.setUserAttendance);
+app.post('/api/v1/submitAttendance', api.authenticateRoute, api.submitAttendance);
 app.post('/api/v1/addUserToEvent', api.authenticateRoute, api.addUserToEvent);
 app.post('/api/v1/createPoll', api.authenticateRoute, api.createPoll);
 app.post('/api/v1/notifyUsers', api.notifyUsers);

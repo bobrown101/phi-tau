@@ -64,11 +64,13 @@ let AdminForm = React.createClass({
         <CenteredContainer>
           <h3 className="white styled-header">Rescouncil Members</h3>
 
-            <table>
+            <table className="stack">
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Phone Number</th>
+                  <th>Email</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -78,32 +80,57 @@ let AdminForm = React.createClass({
                       <tr key={listValue._id}>
                         <td>{listValue.name}</td>
                         <td>{listValue.phone_number}</td>
+                        <td>{listValue.email}</td>
+                        <td>Delete {listValue._id}</td>
                       </tr>
                     )
                   })}
 
+                  <tr key="create_new_user_item">
+                    <td><input type="text" placeholder="name" onChange={this.handleNameChange}/></td>
+                    <td><input type="text" placeholder="phone number" onChange={this.handlePhoneNumberChange}/></td>
+                    <td><input type="text" placeholder="email" onChange={this.handleEmailChange}/></td>
+                    <td><button className="hollow button gold medium" onClick={this.addNewUser} >Submit New Person</button></td>
+                  </tr>
+
               </tbody>
             </table>
-
-          <h4>Add New</h4>
-
-          <input type="text" placeholder="name" onChange={this.handleNameChange}/>
-          <input type="text" placeholder="email" onChange={this.handleEmailChange}/>
-          <input type="text" placeholder="phone number" onChange={this.handlePhoneNumberChange}/>
-
-          <button className="hollow button gold small-12 medium" onClick={this.addNewUser} >Submit New Person</button>
 
 
           <hr/>
 
-          {this.props.eventsList.map(function(event){
-            return(
-              <Link to={"/event/" + event._id} key={event._id}>{event.eventName}</Link>
-            );
-          })}
+          <h3 className="white styled-header">Events</h3>
 
-          <input type="text" placeholder="Event Name" onChange={this.handleEventNameChange}/>
-          <a className="hollow button gold small-12 medium" onClick={this.createNewEvent}>Create Event and Take Attendance</a>
+          <table className="stack">
+            <thead>
+              <tr>
+                <th>Event Name</th>
+                <th>Event Time</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+
+                {this.props.eventsList.map(function(event){
+                  return (
+                    <tr key={event._id}>
+                      <td><Link to={"/event/" + event._id} key={event._id} className="styled-inline-link">{event.eventName}</Link></td>
+                      <td>{event.eventTime}</td>
+                      <td>Delete {event._id}</td>
+                    </tr>
+                  )
+                })}
+
+                <tr key="create_new_user_item">
+                  <td><input type="text" placeholder="Event Name" onChange={this.handleEventNameChange}/></td>
+                  <td><input type="text" placeholder="phone number" onChange={this.handlePhoneNumberChange}/></td>
+                  <td><a className="hollow button gold small-12 medium" onClick={this.createNewEvent}>Create Event and Take Attendance</a></td>
+                </tr>
+
+            </tbody>
+          </table>
+
+
         </CenteredContainer>
       </Section>
     );

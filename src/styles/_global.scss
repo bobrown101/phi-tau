@@ -132,6 +132,22 @@ cite {
     font-weight:normal;
 }
 
+table thead {
+  background-color: darken($harvard_red, 10);
+  border: 3px solid $old_gold;
+  color: $old_gold;
+  font-size: 1.25rem;
+}
+table tbody {
+  background-color: $harvard_red;
+  border: 1px solid $old_gold;
+  color: $old_gold;
+  font-size: 1.25rem;
+}
+table tbody tr:nth-child(even) {
+  background-color: darken($harvard_red, 10);
+}
+
 
 
 *.margin10 {
@@ -315,4 +331,6 @@ a.styled-inline-link {
   height: 2em;
   margin: 0;
   margin-right: 1em;
+  color: $old_gold;
+  padding-left: 5px;
 }

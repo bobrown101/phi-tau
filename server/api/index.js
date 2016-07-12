@@ -148,22 +148,29 @@ module.exports = {
     });
   },
   createEvent: function(req, res) {
-    console.log('asdfasdf123');
-    if( ! req.body.event_name){
-      throw(new Error("event_name not provided"));
-    }
-    let event = new CustomEvent({
-      eventTime: Date.now(),
-      users: [],
-      eventName: req.body.event_name,
-      polls: []
+
+    User.find({}, function(err, users){
+      if(err){
+        throw err;
+      }
+      if( ! req.body.event_name){
+        throw(new Error("event_name not provided"));
+      }
+      let event = new CustomEvent({
+        eventTime: Date.now(),
+        // usersAbsent: users,
+        eventName: req.body.event_name,
+        polls: []
+      });
+      // save the sample user
+      event.save(function(err) {
+        if (err) throw err;
+        console.log('Event saved successfully');
+        res.json({ success: true, event: event });
+      });
+
     });
-    // save the sample user
-    event.save(function(err) {
-      if (err) throw err;
-      console.log('Event saved successfully');
-      res.json({ success: true, event: event });
-    });
+
   },
   getEvents: function(req, res){
     console.log(req.body);
@@ -199,6 +206,157 @@ module.exports = {
         }});
 
     });
+  },
+  setUserAttendance: function(req, res){
+    if( ! req.body.eventID){
+      throw(new Error("eventID not provided"));
+    }
+    if( ! req.body.user){
+      throw(new Error("user not provided"));
+    }
+    if( ! req.body.attendance){
+      throw(new Error("attendance not provided"));
+    }
+
+    CustomEvent.update({_id: req.body.eventID},
+      {
+        $pull: { "usersPresent": {_id: req.body.user._id}, "usersAbsent": {_id: req.body.user._id}, "usersExcused": {_id: req.body.user._id}, "usersCoop": {_id: req.body.user._id} }
+      }, function(err,data) {
+      if(err) {
+        console.log("Error: ", err);
+        throw err;
+      }
+      else {
+        console.log("data: ", data);
+        console.log(req.body.user.name, " is ", req.body.attendance, " for event: " + req.body.eventID);
+
+
+
+        if(req.body.attendance == "present"){
+          CustomEvent.update({_id: req.body.eventID},
+            {
+              $push: { "usersPresent": req.body.user }
+            }, function(err) {
+            if(err) {
+              console.log("Error: ", err);
+              throw err;
+            }
+            else {
+              console.log('Attendance saved correctly');
+              res.json({ success: true });
+            }});
+        }
+        else if(req.body.attendance == "absent"){
+          CustomEvent.update({_id: req.body.eventID},
+            {
+              $push: { "usersAbsent": req.body.user }
+            }, function(err) {
+            if(err) {
+              console.log("Error: ", err);
+              throw err;
+            }
+            else {
+              console.log('Attendance saved correctly');
+              res.json({ success: true });
+            }});
+        }
+        else if(req.body.attendance == "excused"){
+          CustomEvent.update({_id: req.body.eventID},
+            {
+              $push: { "usersExcused": req.body.user }
+            }, function(err) {
+            if(err) {
+              console.log("Error: ", err);
+              throw err;
+            }
+            else {
+              console.log('Attendance saved correctly');
+              res.json({ success: true });
+            }});
+        }
+        else if(req.body.attendance == "coop"){
+          CustomEvent.update({_id: req.body.eventID},
+            {
+              $push: { "usersCoop": req.body.user }
+            }, function(err) {
+            if(err) {
+              console.log("Error: ", err);
+              throw err;
+            }
+            else {
+              console.log('Attendance saved correctly');
+              res.json({ success: true });
+            }});
+        }else{
+          res.json({success: false, message: "attendance not acceptable option"});
+        }
+
+
+      }});
+  },
+  submitAttendance: function(req, res) {
+    if( ! req.body.eventID){
+      throw(new Error("eventID not provided"));
+    }
+    if( ! req.body.usersPresent){
+      throw(new Error("usersPresent not provided"));
+    }
+    if( ! req.body.usersAbsent){
+      throw(new Error("usersAbsent not provided"));
+    }
+    if( ! req.body.usersExcused){
+      throw(new Error("usersExcused not provided"));
+    }
+    if( ! req.body.usersCoop){
+      throw(new Error("usersCoop not provided"));
+    }
+
+    for(let user in req.body.usersPresent){
+      CustomEvent.update({_id: req.body.eventID}, {$push: { "usersPresent": req.body.usersPresent[user] }}, function(err) {
+        if(err) {
+          throw err;
+        }
+        else {
+          console.log('Event saved successfully');
+          // res.json({ success: true });
+        }});
+    }
+
+    for(let user in req.body.usersAbsent){
+      CustomEvent.update({_id: req.body.eventID}, {$push: { "usersAbsent": req.body.usersAbsent[user] }}, function(err) {
+        if(err) {
+          throw err;
+        }
+        else {
+          console.log('Event saved successfully');
+          // res.json({ success: true });
+        }});
+    }
+
+    for(let user in req.body.usersExcused){
+      CustomEvent.update({_id: req.body.eventID}, {$push: { "usersExcused": req.body.usersExcused[user] }}, function(err) {
+        if(err) {
+          throw err;
+        }
+        else {
+          console.log('Event saved successfully');
+          // res.json({ success: true });
+        }});
+    }
+
+    for(let user in req.body.usersCoop){
+      CustomEvent.update({_id: req.body.eventID}, {$push: { "usersCoop": req.body.usersCoop[user] }}, function(err) {
+        if(err) {
+          throw err;
+        }
+        else {
+          console.log('Event saved successfully');
+          // res.json({ success: true });
+        }});
+    }
+
+    res.send({success: true, message: "Attendance Logged"});
+
   },
   createPoll: function(req, res) {
     if( ! req.body.eventID){
