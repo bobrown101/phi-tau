@@ -17,6 +17,7 @@ let AdminForm = React.createClass({
       newPollOptions: ""
     };
   },
+  
   handleEmailChange: function(e) {
      this.setState({newUserEmail: e.target.value});
   },
@@ -93,7 +94,7 @@ let AdminForm = React.createClass({
             </table>
 
           <hr/>
-          
+
           <h3 className="white styled-header">Events</h3>
 
           <table className="stack">
