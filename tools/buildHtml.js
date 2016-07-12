@@ -11,7 +11,7 @@ import fs from 'fs';
 import {chalkSuccess, chalkError, chalkWarning} from './chalkConfig';
 import cheerio from 'cheerio';
 
-const useErrLytics = true; // If you choose not to use TrackJS, just set this to false and the build warning will go away.
+const useErrLytics = false; // If you choose not to use TrackJS, just set this to false and the build warning will go away.
 const errLyticsToken = 'gn4ovuQiFmrX27dnJcSq8JZaUd6uuX0u51APC21JHNA'; // If you choose to use TrackJS, insert your unique token here. To get a token, go to https://trackjs.com
 
 fs.readFile('src/index.html', 'utf8', (readError, markup) => {
