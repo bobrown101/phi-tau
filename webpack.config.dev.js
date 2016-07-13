@@ -1,5 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('development'),
@@ -22,6 +24,7 @@ export default {
   },
   plugins: [
     new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.htmlnew webpack.HotModuleReplacementPlugin());
+    new HtmlWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
