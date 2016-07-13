@@ -91,9 +91,6 @@ let AdminForm = React.createClass({
                   </tr>
               </tbody>
             </table>
-
-          <hr/>
-
           <h3 className="white styled-header">Events</h3>
 
           <table className="stack">
