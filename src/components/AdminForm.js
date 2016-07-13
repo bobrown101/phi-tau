@@ -17,7 +17,6 @@ let AdminForm = React.createClass({
       newPollOptions: ""
     };
   },
-  
   handleEmailChange: function(e) {
      this.setState({newUserEmail: e.target.value});
   },

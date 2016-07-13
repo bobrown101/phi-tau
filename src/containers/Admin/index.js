@@ -16,6 +16,7 @@ const AdminDashboard = React.createClass({
   componentDidMount: function(){
     this.props.get_users();
     this.props.get_events();
+    
   },
   render: function() {
     return (
