@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+let HtmlWebpackPlugin = require('html-webpack-plugin');
 import path from 'path';
 
 
@@ -22,6 +23,10 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: './src/index.html'
+    }),
     new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.htmlnew webpack.HotModuleReplacementPlugin());
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()

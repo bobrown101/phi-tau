@@ -1,0 +1,2 @@
+on admin page, reset new user input when submitted.
+on admin page, improve new user form validation

@@ -1,6 +1,8 @@
 import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('production'),
@@ -19,6 +21,10 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      hash: true,
+      template: './src/index.html'
+    }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new ExtractTextPlugin('styles.css'),
