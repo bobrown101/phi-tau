@@ -24,7 +24,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      hash: true,
+      // hash: true,
       template: './src/index.html'
     }),
     new webpack.DefinePlugin(GLOBALS), // Tells React to build in prod mode. https://facebook.github.io/react/downloads.htmlnew webpack.HotModuleReplacementPlugin());

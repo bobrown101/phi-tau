@@ -48,12 +48,13 @@ if ( app.get('env') === 'development' ) {
 
   console.log(chalkProcessing("Running server in devlopment mode"));
   const bundler = webpack(config);
+  app.use(webpackHotMiddleware(bundler));
+
   app.use(webpackDevMiddleware(bundler, {
     publicPath: config.output.publicPath,
     stats: { colors: true },
     noInfo: true
   }));
-  app.use(webpackHotMiddleware(bundler));
   app.use("/", express.static(path.resolve('/src')));
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname + '/../' + '/src/index.html'));
