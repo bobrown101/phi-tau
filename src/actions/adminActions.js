@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import { push } from 'react-router-redux';
+// import { push } from 'react-router-redux';
 
 import axios from 'axios';
 
@@ -96,6 +96,55 @@ export function add_user_failure(message){
   };
 }
 
+export function attempt_delete_user(userID){
+  console.log("deleting user: ", userID);
+
+  return (dispatch, getState) => { // eslint-disable-line
+    // return dispatch(fetchPosts(subreddit))
+    console.log("attempting to add (aka create) user");
+    axios({
+      method: 'post',
+      url: '/api/v1/deleteUser',
+      headers: {
+        'x-access-token': getState().authentication.token
+      },
+      data: {
+        userID
+      }
+    })
+    .then(function (response) {
+      console.log("delete_user reponse");
+      console.log(response);
+      if(response.data.success){
+        dispatch(delete_user_success(response.data.users));
+        dispatch(attempt_get_users());
+      }else{
+        dispatch(delete_user_failure(response.data.message));
+      }
+    })
+    .catch(function (error) {
+      console.log("error get_users: ");
+      console.log(error);
+      // dispatch(login_failure(error));
+    });
+  };
+}
+
+export function delete_user_success(){
+  return {
+    type: types.DELETE_USER_SUCCESS,
+    success: true
+  };
+}
+
+export function delete_user_failure(message){
+  return {
+    type: types.DELETE_USER_FAILURE,
+    success: false,
+    message: message
+  };
+}
+
 export function attempt_get_events(){
   return (dispatch, getState) => { // eslint-disable-line
     // return dispatch(fetchPosts(subreddit))
@@ -186,6 +235,48 @@ export function create_event_success(event){
 export function create_event_failure(error){
   return {
     type: types.CREATE_EVENT_FAILURE,
+    success: false,
+    error: error
+  };
+}
+
+export function attempt_delete_event(eventID){
+  return (dispatch, getState) => { // eslint-disable-line
+    axios({
+      method: 'post',
+      url: '/api/v1/deleteEvent',
+      headers: {
+        'x-access-token': getState().authentication.token
+      },
+      data: {
+        eventID
+      }
+    })
+    .then(function (response) {
+      if(response.data.success){
+        dispatch(delete_event_success());
+        dispatch(attempt_get_events());
+      }else{
+        dispatch(delete_event_failure(response.data.message));
+      }
+    })
+    .catch(function (error) {
+      console.log("error delete_event: ");
+      console.log(error);
+    });
+  };
+}
+
+export function delete_event_success(){
+  return {
+    type: types.DELETE_EVENT_SUCCESS,
+    success: true
+  };
+}
+
+export function delete_event_failure(error){
+  return {
+    type: types.DELETE_EVENT_FAILURE,
     success: false,
     error: error
   };

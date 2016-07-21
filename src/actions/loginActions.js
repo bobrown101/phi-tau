@@ -23,7 +23,7 @@ export function attempt_login(email, password, forward_location = "/admin-dashbo
         dispatch(login_success(response.data.token));
         dispatch(push(forward_location));
       }else{
-        dispatch(login_failure(response.data.message));
+        dispatch(login_failure(response.data.message, response.data.errorSource));
       }
     })
     .catch(function (error) {
@@ -42,10 +42,11 @@ export function login_success(token){
   };
 }
 
-export function login_failure(error){
+export function login_failure(error, errorSource){
   return {
     type: types.LOGIN_FAILURE,
     success: false,
-    error: error
+    error: error,
+    errorSource: errorSource
   };
 }

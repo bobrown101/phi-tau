@@ -23,6 +23,7 @@ const LoginPage = React.createClass({
         attempt_login={this.props.attempt_login}
         failed_attempt={this.props.failed_attempt}
         message={this.props.message}
+        errorSource={this.props.errorSource}
         />
     );
   }
@@ -38,7 +39,8 @@ const mapStateToProps = function(store) {
 
   return {
     failed_attempt: store.authentication.failed_attempt,
-    message: store.authentication.message
+    message: store.authentication.message,
+    errorSource: store.authentication.errorSource
   };
 };
 

@@ -7,54 +7,80 @@ import CursiveHeader from './CursiveHeader.js';
 import CenteredContainer from './CenteredContainer.js';
 
 let AdminForm = React.createClass({
+  propTypes: function() {
+    return {
+      add_user: PropTypes.func.isRequired
+    };
+  },
   getInitialState: function(){
     return {
-      newUserEmail: "",
-      newUserPassword: "",
       newUserName: "",
+      newUserEmail: "",
+      newUserEmailValid: false,
+      newUserPhoneNumber: "",
+      newUserPhoneNumberValid: false,
       newEventName: "",
-      newPollName: "",
-      newPollOptions: ""
+      // newPollName: "",
+      // newPollOptions: ""
     };
   },
   handleEmailChange: function(e) {
-     this.setState({newUserEmail: e.target.value});
+    this.newUserValid();
+    this.setState({newUserEmail: e.target.value});
   },
   handlePhoneNumberChange: function(e) {
-     this.setState({newUserPhoneNumber: e.target.value});
+    this.newUserValid();
+    this.setState({newUserPhoneNumber: e.target.value});
   },
   handleNameChange: function(e) {
-     this.setState({newUserName: e.target.value});
+    this.newUserValid();
+    this.setState({newUserName: e.target.value});
   },
   addNewUser: function(){
     this.props.add_user(this.state.newUserName, this.state.newUserEmail, this.state.newUserPhoneNumber);
   },
+  newUserValid: function(){
+
+    let phone_match = /\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*\d\W*(\d{1,2})$/;
+    let phone_valid = this.state.newUserPhoneNumber.match(phone_match);
+
+    let email_match = /^\S+@\S+\.\S+$/;
+    let email_valid = this.state.newUserEmail.match(email_match);
+
+    this.setState({
+      newUserEmailValid: email_valid,
+      newUserPhoneNumberValid: phone_valid
+    });
+
+  },
   handleEventNameChange: function(e) {
      this.setState({newEventName: e.target.value});
   },
-  handleNewPollNameChange: function(e) {
-    this.setState({newPollName: e.target.value})
-  },
-  handleNewPollOptionsChange: function(e) {
-    this.setState({newPollOptions: e.target.value})
-  },
+  // handleNewPollNameChange: function(e) {
+  //   this.setState({newPollName: e.target.value});
+  // },
+  // handleNewPollOptionsChange: function(e) {
+  //   this.setState({newPollOptions: e.target.value});
+  // },
   createNewEvent: function(){
     console.log("name: " + this.state.newEventName);
     this.props.create_event(this.state.newEventName);
   },
-  create_poll: function(eventID){
-    let options = this.state.newPollOptions.split(',');
-    this.props.create_poll(eventID, this.state.newPollName, options) // TODO - add options. Maybe comma separated?
-  },
+  // create_poll: function(eventID){
+  //   let options = this.state.newPollOptions.split(',');
+  //   this.props.create_poll(eventID, this.state.newPollName, options); // TODO - add options. Maybe comma separated?
+  // },
   attempt_notify_users: function(eventID, pollID){
     this.props.attempt_notify_users(eventID, pollID);
   },
   render: function() {
-    // console.log(this.state);
-    // console.log("rendering form");
-    // console.log(this.props.eventsList);
 
     let that = this;
+
+    let newUserEmailFormClass = that.state.newUserEmailValid ? "inputValid" : "inputInvalid";
+    let newUserPhoneNumberFormClass = that.state.newUserPhoneNumberValid ? "inputValid" : "inputInvalid";
+
+    console.log("button disabled: ", that.state.newUserEmailValid, that.state.newUserPhoneNumberValid, (!that.state.newUserPhoneNumberValid || !that.state.newUserEmailValid));
 
     return (
 
@@ -78,16 +104,22 @@ let AdminForm = React.createClass({
                         <td>{listValue.name}</td>
                         <td>{listValue.phone_number}</td>
                         <td>{listValue.email}</td>
-                        <td>Delete {listValue._id}</td>
+                        <td>
+                          <button className="hollow button gold medium" onClick={() => {
+                              that.props.delete_user(listValue._id);}
+                          }>
+                          Delete User
+                          </button>
+                        </td>
                       </tr>
-                    )
+                    );
                   })}
 
                   <tr key="create_new_user_item">
-                    <td><input type="text" placeholder="name" onChange={this.handleNameChange}/></td>
-                    <td><input type="text" placeholder="phone number" onChange={this.handlePhoneNumberChange}/></td>
-                    <td><input type="text" placeholder="email" onChange={this.handleEmailChange}/></td>
-                    <td><button className="hollow button gold medium" onClick={this.addNewUser} >Submit New Person</button></td>
+                    <td><input type="text" placeholder="Name" onChange={this.handleNameChange}/></td>
+                    <td><input type="text" placeholder="+1-XXX-XXXX" onChange={this.handlePhoneNumberChange} className={newUserPhoneNumberFormClass}/></td>
+                    <td><input type="text" placeholder="Email" onChange={this.handleEmailChange} className={newUserEmailFormClass}/></td>
+                    <td><button className="hollow button gold medium" onClick={this.addNewUser} disabled={(!that.state.newUserPhoneNumberValid || !that.state.newUserEmailValid)}>Submit New Person</button></td>
                   </tr>
               </tbody>
             </table>
@@ -108,14 +140,20 @@ let AdminForm = React.createClass({
                     <tr key={event._id}>
                       <td><Link to={"/event/" + event._id} key={event._id} className="styled-inline-link">{event.eventName}</Link></td>
                       <td>{event.eventTime}</td>
-                      <td>Delete {event._id}</td>
+                        <td>
+                          <button className="hollow button gold medium" onClick={() => {
+                              that.props.delete_event(event._id);}
+                          }>
+                          Delete Event
+                          </button>
+                        </td>
                     </tr>
-                  )
+                  );
                 })}
 
                 <tr key="create_new_user_item">
                   <td><input type="text" placeholder="Event Name" onChange={this.handleEventNameChange}/></td>
-                  <td><input type="text" placeholder="phone number" onChange={this.handlePhoneNumberChange}/></td>
+                  <td></td>
                   <td><a className="hollow button gold small-12 medium" onClick={this.createNewEvent}>Create Event</a></td>
                 </tr>
 

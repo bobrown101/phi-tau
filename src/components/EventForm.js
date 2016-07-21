@@ -1,5 +1,4 @@
 let React = require('react');
-let PropTypes = React.PropTypes;
 
 // import { Link } from 'react-router';
 import Section from './Section.js';
@@ -8,16 +7,20 @@ import CursiveHeader from './CursiveHeader.js';
 
 
 let EventForm = React.createClass({
-  // propTypes: function() {
-  //   return{
-  //     optionsList: React.PropTypes.func.isRequired
-  //   };
-  // },
+  propTypes: function() {
+    return{
+      usersList: React.PropTypes.array.isRequired,
+      currentEvent: React.PropTypes.object.isRequired
+    };
+  },
   getDefaultProps: function() {
     return {
       currentEvent: null,
       userList: []
     };
+  },
+  componentWillMount: function(){
+
   },
   userPresent: function(event, user){
     let newUsers = event.usersPresent.filter(function(obj){
@@ -77,9 +80,20 @@ let EventForm = React.createClass({
     }
 
   },
-  componentWillMount: function(){
-
+  // handleNewPollNameChange: function(e) {
+  //   this.setState({newPollName: e.target.value});
+  // },
+  // handleNewPollOptionsChange: function(e) {
+  //   this.setState({newPollOptions: e.target.value});
+  // },
+  // create_poll: function(eventID){
+  //   let options = this.state.newPollOptions.split(',');
+  //   this.props.create_poll(eventID, this.state.newPollName, options); // TODO - add options. Maybe comma separated?
+  // },
+  attempt_notify_users: function(eventID, pollID){
+    this.props.attempt_notify_users(eventID, pollID);
   },
+
   render: function() {
 
     let that = this;
@@ -89,7 +103,7 @@ let EventForm = React.createClass({
 
 
     return (
-
+    <div>
       <Section >
         {/*<AngledDivider/>*/}
         <CursiveHeader>Attendance</CursiveHeader>
@@ -117,7 +131,7 @@ let EventForm = React.createClass({
                         type="radio" value="Present"
                         required
                       />
-                    <label for={user._id + "present"} className="user-list-label">Present</label>
+                    <label htmlFor={user._id + "present"} className="user-list-label">Present</label>
                     </div>
                     <div className="small-6 medium-3 columns">
                       <input
@@ -130,7 +144,7 @@ let EventForm = React.createClass({
                         value="absent"
                         required
                       />
-                      <label for={user._id + "absent"} className="user-list-label">Absent</label>
+                    <label htmlFor={user._id + "absent"} className="user-list-label">Absent</label>
 
                     </div>
                     <div className="small-6 medium-3 columns">
@@ -144,7 +158,7 @@ let EventForm = React.createClass({
                         value="excused"
                         required
                       />
-                      <label for={user._id + "excused"} className="user-list-label">Excused</label>
+                    <label htmlFor={user._id + "excused"} className="user-list-label">Excused</label>
                     </div>
                     <div className="small-6 medium-3 columns">
                       <input
@@ -157,7 +171,7 @@ let EventForm = React.createClass({
                         value="coop"
                         required
                       />
-                      <label for={user._id + "coop"} className="user-list-label">Co-op</label>
+                      <label htmlFor={user._id + "coop"} className="user-list-label">Co-op</label>
                     </div>
                 </div>
               </div>
@@ -165,9 +179,51 @@ let EventForm = React.createClass({
           })}
 
         </div>
+      </Section>
 
+      <Section inverted>
+        <CursiveHeader>Polls</CursiveHeader>
+
+        <table className="stack">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+              {currentEvent.polls.map(function(listValue){
+                return (
+                  <tr key={listValue._id}>
+                    <td>{listValue.name}</td>
+                    <td>{listValue.phone_number}</td>
+                    <td>{listValue.email}</td>
+                    <td>
+                      <button className="hollow button gold medium" onClick={() => {
+                          that.props.delete_user(listValue._id);}
+                      }>
+                      Delete User
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+
+              <tr key="create_new_user_item">
+                <td><input type="text" placeholder="Name"/></td>
+                <td><input type="text" placeholder="+1-XXX-XXXX" /></td>
+                <td><input type="text" placeholder="Email" /></td>
+                <td><button className="hollow button gold medium">Submit New Person</button></td>
+              </tr>
+          </tbody>
+        </table>
 
       </Section>
+
+
+    </div>
     );
   }
 

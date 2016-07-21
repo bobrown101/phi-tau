@@ -47,7 +47,8 @@ export default function authenticationReducer(state = initialState.authenticatio
     case "LOGIN_FAILURE":
       return Object.assign({}, state, {
         failed_attempt: true,
-        message: action.error
+        message: action.error,
+        errorSource: action.errorSource
       });
 
 

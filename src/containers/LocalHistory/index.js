@@ -32,7 +32,7 @@ const LocalHistory = () => {
 
               <p>
                 By 1964-65 Kappa Phi Omega captured top scholarship honors among fraternities,
-                and acquired and improved a Chapter House on the old campus at 141 S. Plymouth Ave.,
+                and acquired a Chapter House on the old campus at 141 S. Plymouth Ave.,
                 in downtown Rochester, NY.
               </p>
 
@@ -50,9 +50,7 @@ const LocalHistory = () => {
 
               <p>
                 When the RIT campus moved from downtown Rochester to its suburban campus in 1968,
-                the fraternities gave up their historic Victorian Houses for modern on-campus residences.
-                Gamma Nu's new home was in the prominent building opposite the Southwest corner of the Sun Dial,
-                the center of student residential life.
+                the fraternities moved into modern on-campus residences surrouding the Sun Dial.
               </p>
 
               <p>

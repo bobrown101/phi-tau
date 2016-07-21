@@ -5,7 +5,9 @@ import {
   attempt_get_users,
   attempt_get_events,
   attempt_add_user,
+  attempt_delete_user,
   attempt_create_event,
+  attempt_delete_event,
   attempt_create_poll,
   attempt_notify_users}
   from '../../actions/adminActions.js';
@@ -16,7 +18,7 @@ const AdminDashboard = React.createClass({
   componentDidMount: function(){
     this.props.get_users();
     this.props.get_events();
-    
+
   },
   render: function() {
     return (
@@ -24,7 +26,9 @@ const AdminDashboard = React.createClass({
         get_users={this.props.get_users}
         userList={this.props.userList}
         add_user={this.props.add_user}
+        delete_user={this.props.delete_user}
         get_events={this.props.get_events}
+        delete_event={this.props.delete_event}
         eventsList={this.props.eventsList}
         create_event={this.props.create_event}
         create_poll={this.props.create_poll}
@@ -59,8 +63,14 @@ const mapDispatchToProps = function(dispatch, ownProps) {
       console.log("add_user from AdminDashboard");
       dispatch(attempt_add_user(name, email, phone_number));
     },
+    delete_user: function(userID){
+      dispatch(attempt_delete_user(userID));
+    },
     get_events: function() {
       dispatch(attempt_get_events());
+    },
+    delete_event: function(eventID){
+      dispatch(attempt_delete_event(eventID));
     },
     create_event: function(name) {
       dispatch(attempt_create_event(name));

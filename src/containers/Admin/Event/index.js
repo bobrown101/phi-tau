@@ -6,7 +6,8 @@ import {
   attempt_get_events,
   attempt_add_user,
   attempt_set_user_attendance,
-  attempt_submit_attendance}
+  attempt_submit_attendance,
+  attempt_create_poll}
   from '../../../actions/adminActions.js';
 
 
@@ -19,6 +20,10 @@ const Event = React.createClass({
   componentWillMount: function(){
     this.props.get_events();
   },
+  // create_poll: function(eventID){
+  //   let options = this.state.newPollOptions.split(',');
+  //   this.props.create_poll(eventID, this.state.newPollName, options); // TODO - add options. Maybe comma separated?
+  // },
   render: function() {
     return (
       <EventForm
@@ -30,6 +35,8 @@ const Event = React.createClass({
         set_user_attendance={this.props.set_user_attendance}
         submit_attendance={this.props.submit_attendance}
         currentEvent={this.props.currentEvent}
+        create_poll={this.props.create_poll}
+
       />
     );
   }
@@ -77,6 +84,9 @@ const mapDispatchToProps = function(dispatch, ownProps){
     },
     set_user_attendance(user, attendance){
       dispatch(attempt_set_user_attendance(ownProps.params.eventID, user, attendance));
+    },
+    create_poll: function(event, name, options) {
+      dispatch(attempt_create_poll(event, name, options));
     }
 
 

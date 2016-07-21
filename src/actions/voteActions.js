@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import { push } from 'react-router-redux';
+// import { push } from 'react-router-redux';
 
 import axios from 'axios';
 

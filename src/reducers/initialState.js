@@ -6,7 +6,8 @@ export default {
       authenticated: false,
       token: "",
       failed_attempt: false,
-      message: ""
+      message: "",
+      errorSource: ""
     },
     admin: {
       users: [],

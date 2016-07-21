@@ -127,9 +127,47 @@ cite {
 
 @include placeholder {
     font-style:italic;
-    color: $phitau_grey !important;
-    opacity: 1;
-    font-weight:normal;
+    color: black !important;
+    opacity: .5;
+    // opacity: 1;
+    // font-weight:bold;
+}
+input:focus {
+  background-color: inherit;
+}
+.inputInvalid{
+  background-color: #ff9e9e !important;
+  // &::-webkit-input-placeholder {color: white !important;}
+  // :-moz-placeholder           {@content}
+  // ::-moz-placeholder          {@content}
+  // :-ms-input-placeholder      {@content}
+  @include placeholder_nested {
+      // font-style:italic;
+      color: white !important;
+      opacity: 1;
+      font-weight: bold;
+      // opacity: 1;
+      // font-weight:normal;
+  }
+}
+.inputValid {
+  background-color: #a2ffa2 !important;
+  // &::-webkit-input-placeholder {color: white !important;}
+  // :-moz-placeholder           {@content}
+  // ::-moz-placeholder          {@content}
+  // :-ms-input-placeholder      {@content}
+  @include placeholder_nested {
+      // font-style:italic;
+      color: white !important;
+      opacity: 1;
+      font-weight: bold;
+      // opacity: 1;
+      // font-weight:normal;
+  }
+}
+
+.button[disabled] {
+  opacity: .5;
 }
 
 table thead {

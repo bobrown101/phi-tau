@@ -54,17 +54,17 @@ module.exports = {
       if (err) throw err;
 
       if (!user) {
-        res.json({ success: false, message: 'Authentication failed. User not found.' });
+        res.json({ success: false, errorSource: "email", message: 'Authentication failed. User not found.' });
       } else if (user) {
 
         if(!user.admin){
-          res.json({ success: false, message: 'Authentication failed. Not admin' });
+          res.json({ success: false, errorSource: "email", message: 'Authentication failed. Not admin' });
 
         }
 
         // check if password matches
         if (!bcrypt.compareSync(req.body.password, user.password)) {
-          res.json({ success: false, message: 'Authentication failed. Wrong password.' });
+          res.json({ success: false, errorSource: "password", message: 'Authentication failed. Wrong password.' });
         } else {
 
           // if user is found and password is right
@@ -125,6 +125,24 @@ module.exports = {
       res.json({ success: true, message: 'User saved successfully' });
     });
   },
+  deleteUser: function(req, res){
+    if( ! req.body.userID){
+      throw(new Error("userID not provided"));
+    }
+
+    User.find({_id: req.body.userID}).remove().exec(function(err, result){
+      if(err){
+        throw err;
+      }
+
+      console.log("remove user result", result);
+
+      res.send({
+        success: true,
+        message: "User successfully deleted"
+      });
+    });
+  },
   getUsers: function(req, res){
     console.log(req.body);
     User.find({}, function(err, users) {
@@ -171,6 +189,24 @@ module.exports = {
 
     });
 
+  },
+  deleteEvent: function(req, res){
+    if( ! req.body.eventID){
+      throw(new Error("eventID not provided"));
+    }
+
+    CustomEvent.find({_id: req.body.eventID}).remove().exec(function(err, result){
+      if(err){
+        throw err;
+      }
+
+      console.log("remove event result", result);
+
+      res.send({
+        success: true,
+        message: "Event successfully deleted"
+      });
+    });
   },
   getEvents: function(req, res){
     console.log(req.body);

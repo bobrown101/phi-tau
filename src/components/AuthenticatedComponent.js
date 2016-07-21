@@ -6,6 +6,15 @@ export function requireAuthentication(Component) {
 
     class AuthenticatedComponent extends React.Component {
 
+        propTypes () {
+          return {
+            authenticated: React.PropTypes.boolean,
+            dispatch: React.PropTypes.func.isRequired,
+            location: React.PropTypes.object
+
+          };
+        }
+
         componentWillMount () {
             this.checkAuth(this.props.authenticated);
         }
@@ -30,7 +39,7 @@ export function requireAuthentication(Component) {
                         : null
                     }
                 </div>
-            )
+            );
 
         }
     }
