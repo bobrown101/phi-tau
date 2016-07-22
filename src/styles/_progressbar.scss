@@ -1,0 +1,33 @@
+$progress-bg-color: darken($harvard_red, 10);
+$progress-fg-color: $old_gold;
+$stroke-dashoffset: 5px;
+
+.CircularProgress {
+
+  width: 15rem;
+  height: 15rem;
+
+}
+.CircularProgress-Bg,
+.CircularProgress-Fg {
+    fill: none;
+}
+
+.CircularProgress-Bg {
+    stroke: $progress-bg-color;
+}
+
+.CircularProgress-Fg {
+    transition: $stroke-dashoffset .5s ease-in-out;
+    stroke: $progress-fg-color;
+}
+
+.CircularProgress-Text {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    letter-spacing: 0.2em;
+    font-size: 1.3rem;
+    fill: $progress-fg-color;
+
+    transform: translate(0 50%);
+}

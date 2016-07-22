@@ -1,6 +1,6 @@
 let React = require('react');
 
-// import { Link } from 'react-router';
+import { Link } from 'react-router';
 import Section from './Section.js';
 import CursiveHeader from './CursiveHeader.js';
 // import CenteredContainer from './CenteredContainer.js';
@@ -80,20 +80,20 @@ let EventForm = React.createClass({
     }
 
   },
-  // handleNewPollNameChange: function(e) {
-  //   this.setState({newPollName: e.target.value});
-  // },
-  // handleNewPollOptionsChange: function(e) {
-  //   this.setState({newPollOptions: e.target.value});
-  // },
-  // create_poll: function(eventID){
-  //   let options = this.state.newPollOptions.split(',');
-  //   this.props.create_poll(eventID, this.state.newPollName, options); // TODO - add options. Maybe comma separated?
-  // },
+  handleNewPollNameChange: function(e) {
+    this.setState({newPollName: e.target.value});
+  },
+  handleNewPollOptionsChange: function(e) {
+    let options = e.target.value.split(',');
+
+    this.setState({newPollOptions: options});
+  },
   attempt_notify_users: function(eventID, pollID){
     this.props.attempt_notify_users(eventID, pollID);
   },
-
+  create_poll(name, options) {
+    this.props.create_poll(this.props.currentEvent._id, name, options);
+  },
   render: function() {
 
     let that = this;
@@ -188,8 +188,8 @@ let EventForm = React.createClass({
           <thead>
             <tr>
               <th>Name</th>
-              <th>Phone Number</th>
-              <th>Email</th>
+              <th>Options</th>
+              <th>Date</th>
               <th>Delete</th>
             </tr>
           </thead>
@@ -197,25 +197,21 @@ let EventForm = React.createClass({
               {currentEvent.polls.map(function(listValue){
                 return (
                   <tr key={listValue._id}>
-                    <td>{listValue.name}</td>
-                    <td>{listValue.phone_number}</td>
-                    <td>{listValue.email}</td>
+                    <td><Link to={"/poll/" + currentEvent._id + "/"+ listValue._id}>{listValue.name}</Link></td>
+                    <td></td>
+                    <td></td>
                     <td>
-                      <button className="hollow button gold medium" onClick={() => {
-                          that.props.delete_user(listValue._id);}
-                      }>
-                      Delete User
-                      </button>
+
                     </td>
                   </tr>
                 );
               })}
 
               <tr key="create_new_user_item">
-                <td><input type="text" placeholder="Name"/></td>
-                <td><input type="text" placeholder="+1-XXX-XXXX" /></td>
-                <td><input type="text" placeholder="Email" /></td>
-                <td><button className="hollow button gold medium">Submit New Person</button></td>
+                <td><input type="text" placeholder="Name" onChange={that.handleNewPollNameChange}/></td>
+                <td><input type="text" placeholder="Comma separated values" onChange={that.handleNewPollOptionsChange}/></td>
+                <td></td>
+                <td><button className="hollow button gold medium" onClick={() => {that.create_poll(this.state.newPollName, this.state.newPollOptions);}}>Create New Poll</button></td>
               </tr>
           </tbody>
         </table>

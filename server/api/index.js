@@ -210,7 +210,7 @@ module.exports = {
   },
   getEvents: function(req, res){
     console.log(req.body);
-    CustomEvent.find({}, function(err, events) {
+    CustomEvent.find({}).populate('polls').exec(function(err, events) {
       if(err){
         throw err;
       }
@@ -471,11 +471,11 @@ module.exports = {
       // they belong to the event
       // they havent already voted
 
-    CustomEvent.findOne({_id: req.body.eventID}, function(eventerr, event){
-      if(eventerr){
-        throw eventerr;
+    CustomEvent.findOne({_id: req.body.eventID}, function(currentEventerr, currentEvent){
+      if(currentEventerr){
+        throw currentEventerr;
       }
-      console.log("got event");
+      console.log("got currentEvent");
       Poll.findOne({_id: req.body.pollID}, function(pollerr, poll){
         if(pollerr){
           throw pollerr;
@@ -486,60 +486,55 @@ module.exports = {
           if(usererr){
             throw usererr;
           }
-          console.log("got user");
-
-
-
-          // let userindex = _.findIndex(poll.usersVoted, function(o) {
-          //   console.log(o);
-          //   return o._id == user._id;
-          // });
+          console.log("got user", user);
+          console.log("got poll", poll);
+          console.log("got currentEvent", currentEvent);
 
           let foundUser = false;
 
-
-          for(let i = 0; i<poll.usersVoted.length; i++){
-            if(String(poll.usersVoted[i]._id) == String(user._id)){
+          poll.usersVoted.forEach(function(currentuser){
+            console.log()
+            if(String(currentuser._id) == String(user._id)){
+              console.log("found user that has already voted");
               foundUser = true;
             }
-          }
-
+          });
 
           if(foundUser){
+            console.log({ success: false, message: "User has already voted" });
             return res.json({ success: false, message: "User has already voted" });
           }
 
           foundUser = false;
 
-          console.log(event);
+          currentEvent.usersPresent.forEach(function(currentuser){
 
-          for(let i = 0; i<event.users; i++){
-            console.log("user voting:");
-            console.log(user._id);
-            console.log("user at event:");
-            console.log(event.users[i]._id);
-            if(event.users[i]._id == user._id){
+            if(String(currentuser._id) == String(user._id)){
+              console.log("found user");
               foundUser = true;
             }
-          }
+          });
+
 
           if(!foundUser){
-            return res.json({ success: false, message: "User doesnt exist in event - were they not present for attendance?" });
+            console.log({ success: false, message: "User doesnt exist in currentEvent - were they not present for attendance?" });
+            return res.json({ success: false, message: "User doesnt exist in currentEvent - were they not present for attendance?" });
           }
 
           console.log("poll");
           console.log(poll);
 
           poll.options = poll.options.map(function(obj){
-            console.log(String(obj._id) == String(req.body.voteID));
+            // console.log(String(obj._id) == String(req.body.voteID));
             if(String(obj._id) == String(req.body.voteID)){
+              console.log("increasing the vote");
               obj.votes += 1;
+              poll.usersVoted.push(user);
             }
-
             return obj;
           });
 
-          poll.usersVoted.push(user);
+
 
           poll.save(function(err){
             if(err){
@@ -583,18 +578,20 @@ module.exports = {
 
     //TODO - only notify users at event
 
-    User.find({}, function(err, users) {
+    CustomEvent.findOne({_id: req.body.eventID}, function(err, currentEvent){
       if(err){
+        console.log("notify users err", currentEvent);
         return res.json({ success: false, message: err });
         // throw err;
       }
 
+      let users = currentEvent.usersPresent;
 
       users.forEach(function(obj){
 
         let message = "Please click the link below to vote: \n";
 
-        let host = req.protocol + '://' + req.get('host') + req.originalUrl;
+        let host = req.protocol + '://' + req.get('host');
 
         message = message + host + '/vote'
                   + '?eventID=' + req.body.eventID
@@ -609,7 +606,7 @@ module.exports = {
         success: true,
         message: 'Notified ' + users.length + ' users.'
       });
-
     });
+
   }
 };

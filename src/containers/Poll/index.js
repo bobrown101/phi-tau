@@ -1,37 +1,40 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import EventForm from '../../../components/EventForm';
+import PollForm from '../../components/PollForm';
 import {
   attempt_get_users,
   attempt_get_events,
   attempt_add_user,
   attempt_set_user_attendance,
   attempt_submit_attendance,
-  attempt_create_poll}
-  from '../../../actions/adminActions.js';
+  attempt_create_poll,
+  attempt_notify_users}
+  from '../../actions/adminActions.js';
 
 
 
 const Event = React.createClass({
   componentDidMount: function(){
     this.props.get_users();
-    // this.props.get_events();
   },
   componentWillMount: function(){
     this.props.get_events();
+    // this.props.get_events();
+    let that = this;
+    setInterval(function() {
+      console.log("refreshing data for live-feel");
+      that.props.get_events();
+    }, 3000)
   },
   render: function() {
+
+
     return (
-      <EventForm
-        get_users={this.props.get_users}
-        userList={this.props.userList}
-        add_user={this.props.add_user}
-        eventID={this.props.params.eventID}
-        events={this.props.events}
-        set_user_attendance={this.props.set_user_attendance}
-        submit_attendance={this.props.submit_attendance}
+      <PollForm
         currentEvent={this.props.currentEvent}
-        create_poll={this.props.create_poll}
+        currentPoll={this.props.currentPoll}
+        notify_users={this.props.attempt_notify_users}
+
 
       />
     );
@@ -50,17 +53,31 @@ const mapStateToProps = function(store, ownProps) {
     return obj._id == ownProps.params.eventID;
   });
 
+  let currentPoll = null;
+
   if(currentEvent.length != 1){
     currentEvent = null;
   }else{
     currentEvent = currentEvent[0];
+
+    currentPoll = currentEvent.polls.filter(function(obj){
+      // console.log("matches? ", obj._id == ownProps.params.pollID);
+      return obj._id == ownProps.params.pollID;
+    });
+
+    if(currentPoll.length != 1){
+      currentPoll = null;
+
+    }else{
+      currentPoll = currentPoll[0];
+    }
   }
 
   return {
-    userList: store.admin.users,
-    events: store.admin.events,
-    currentEvent: currentEvent
+    currentEvent: currentEvent,
+    currentPoll: currentPoll
   };
+
 };
 
 const mapDispatchToProps = function(dispatch, ownProps){
@@ -83,6 +100,11 @@ const mapDispatchToProps = function(dispatch, ownProps){
     },
     create_poll: function(event, name, options) {
       dispatch(attempt_create_poll(event, name, options));
+    },
+    attempt_notify_users: function(eventID, pollID) {
+      console.log("attempting to notify users with eventID: " + eventID + " and a pollID of: " + pollID);
+
+      dispatch(attempt_notify_users(eventID, pollID));
     }
 
 

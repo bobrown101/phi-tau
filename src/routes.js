@@ -13,6 +13,7 @@ import Admin from './containers/Admin';
 import Event from './containers/Admin/Event';
 import Login from './containers/Login';
 import Vote from './containers/Vote';
+import Poll from './containers/Poll';
 import {requireAuthentication} from './components/AuthenticatedComponent';
 
 
@@ -26,6 +27,7 @@ export default (
     <Route path="contact" component={ContactPage}/>
     <Route path="admin-dashboard" component={requireAuthentication(Admin)}/>
     <Route path="event/:eventID" component={requireAuthentication(Event)}/>
+    <Route path="poll/:eventID/:pollID" component={requireAuthentication(Poll)} />
     <Route path="login" component={Login}/>
     <Route path="vote" component={Vote}/>
     <Route path="*" component={NotFound}/>

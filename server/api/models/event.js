@@ -11,5 +11,5 @@ module.exports = mongoose.model('CustomEvent', new Schema({
     usersAbsent: [],
     usersExcused: [],
     usersCoop: [],
-    polls: []
+    polls: [{ type: Schema.Types.ObjectId, ref: 'Poll' }]
 }));

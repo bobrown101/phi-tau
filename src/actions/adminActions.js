@@ -167,7 +167,7 @@ export function attempt_get_events(){
       }
     })
     .catch(function (error) {
-      console.log("error create_event: ");
+      console.log("error get_events: ");
       console.log(error);
       // dispatch(login_failure(error));
     });
