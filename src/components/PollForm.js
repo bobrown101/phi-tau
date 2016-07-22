@@ -35,17 +35,14 @@ let PollForm = React.createClass({
       bottomMessage = <h3 className="styled-header">User Who Haven't Voted</h3>;
     }
 
-
-
-
-
-
-
     return (
 
       <Section>
         <CursiveHeader>Poll: {currentPoll.name}</CursiveHeader>
-        <div className="hollow button gold medium" disabled={userNotVoted.length == 0} onClick={() => this.props.notify_users(currentEvent._id, currentPoll._id)}>Notify Users</div>
+        <div className="hollow button gold medium"
+          disabled={userNotVoted.length == 0}
+          onClick={() => this.props.notify_users(currentEvent._id, currentPoll._id)}
+          >Notify Users</div>
         <div className="row">
 
           {currentPoll.options.map(function(obj){

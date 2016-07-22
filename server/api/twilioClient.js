@@ -12,6 +12,10 @@ module.exports.sendSMS = function(number, content){
    from: "+14137285647",
    body: content
   }, function(err, message) {
+      if(err) {
+        console.log("Error: ", err);
+        throw err;
+      }
      console.log("Sent message: " + message.sid);
   });
 

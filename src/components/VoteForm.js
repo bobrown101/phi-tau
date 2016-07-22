@@ -32,7 +32,7 @@ let VoteForm = React.createClass({
       <Section >
         {/*<AngledDivider/>*/}
         <SweetAlert
-          show={this.props.failed_attempt != null}
+          show={this.props.failed_attempt}
           type={this.props.failed_attempt? "error" : "success"}
           title={this.props.failed_attempt? "Uh-oh!" : "Success!"}
           text={this.props.message}
