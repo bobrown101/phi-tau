@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 // import { push } from 'react-router-redux';
+// import sweetalert from '../sweetalert/sweetalert.es6.js';
 
 import axios from 'axios';
 
@@ -22,11 +23,9 @@ export function attempt_get_poll(pollID){
       console.log("attempt_get_poll reponse");
       console.log(response);
       if(response.data.success){
-
         dispatch(get_poll_success(response.data.poll));
       }else{
         dispatch(get_poll_failure(response.data.message));
-
       }
     })
     .catch(function (error) {
@@ -78,11 +77,9 @@ export function attempt_cast_vote(eventID,pollID,userID,voteID){
       console.log("attempt_cast_vote reponse");
       console.log(response);
       if(response.data.success){
-
         dispatch(cast_vote_success(response.data.events));
       }else{
         dispatch(cast_vote_failure(response.data.message));
-
       }
     })
     .catch(function (error) {
@@ -101,10 +98,16 @@ export function cast_vote_success(poll){
   };
 }
 
-export function cast_vote_failure(error){
+export function cast_vote_failure(message){
   return {
     type: types.CAST_VOTE_FAILURE,
     success: false,
-    error: error
+    message: message
+  };
+}
+
+export function clear_status(){
+  return {
+    type: types.CLEAR_STATUS
   };
 }

@@ -16,6 +16,7 @@ export default {
     vote: {
       poll: {
         options: []
-      }
+      },
+      failed_attempt: null
     }
 };

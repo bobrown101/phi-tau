@@ -45,7 +45,7 @@ let PollForm = React.createClass({
 
       <Section>
         <CursiveHeader>Poll: {currentPoll.name}</CursiveHeader>
-        <div className="hollow button gold medium" onClick={() => this.props.notify_users(currentEvent._id, currentPoll._id)}>Notify Users</div>
+        <div className="hollow button gold medium" disabled={userNotVoted.length == 0} onClick={() => this.props.notify_users(currentEvent._id, currentPoll._id)}>Notify Users</div>
         <div className="row">
 
           {currentPoll.options.map(function(obj){

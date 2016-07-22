@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import VoteForm from '../../components/VoteForm';
 import {
   attempt_cast_vote,
-  attempt_get_poll}
+  attempt_get_poll,
+  clear_status}
   from '../../actions/voteActions.js';
 
 
@@ -28,6 +29,9 @@ const Vote = React.createClass({
         attempt_cast_vote={this.props.attempt_cast_vote}
         poll={this.props.poll}
         cast_vote={this.props.cast_vote}
+        failed_attempt={this.props.failed_attempt}
+        message={this.props.message}
+        clear_status={this.props.clear_status}
       />
     );
   }
@@ -44,7 +48,9 @@ const mapStateToProps = function(store) {
   console.log("store: ");
   console.log(store);
   return {
-    poll: store.vote.poll
+    poll: store.vote.poll,
+    failed_attempt: store.vote.failed_attempt,
+    message: store.vote.message
   };
 };
 
@@ -60,6 +66,10 @@ const mapDispatchToProps = function(dispatch, ownProps) {
     },
     attempt_get_poll: function(pollID) {
       dispatch(attempt_get_poll(pollID));
+    },
+    clear_status: function(){
+      console.log("clear status");
+      dispatch(clear_status());
     }
   };
 };

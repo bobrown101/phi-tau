@@ -4,7 +4,8 @@ let PropTypes = React.PropTypes;
 // import { Link } from 'react-router';
 import Section from './Section.js';
 import CursiveHeader from './CursiveHeader.js';
-import CenteredContainer from './CenteredContainer.js';
+// import CenteredContainer from './CenteredContainer.js';
+import SweetAlert from 'sweetalert-react';
 
 
 let VoteForm = React.createClass({
@@ -30,6 +31,13 @@ let VoteForm = React.createClass({
 
       <Section >
         {/*<AngledDivider/>*/}
+        <SweetAlert
+          show={this.props.failed_attempt != null}
+          type={this.props.failed_attempt? "error" : "success"}
+          title={this.props.failed_attempt? "Uh-oh!" : "Success!"}
+          text={this.props.message}
+          onConfirm={() => that.props.clear_status()}
+        />
         <CursiveHeader>Vote On: {this.props.poll.name}</CursiveHeader>
 
 

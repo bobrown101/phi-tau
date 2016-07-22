@@ -541,7 +541,7 @@ module.exports = {
               throw err;
             }
 
-            res.json({ success: true, poll: poll });
+            res.json({ success: true, message: "Your vote has been submitted." });
             console.log("Saved document with updated vote");
           });
 
