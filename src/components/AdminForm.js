@@ -139,7 +139,7 @@ let AdminForm = React.createClass({
                   return (
                     <tr key={event._id}>
                       <td><Link to={"/event/" + event._id} key={event._id} className="styled-inline-link">{event.eventName}</Link></td>
-                      <td>{event.eventTime}</td>
+                      <td>{new Date(event.eventTime).toDateString()}</td>
                         <td>
                           <button className="hollow button gold medium" onClick={() => {
                               that.props.delete_event(event._id);}
