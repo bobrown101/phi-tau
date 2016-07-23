@@ -7,7 +7,8 @@ import {
   attempt_add_user,
   attempt_set_user_attendance,
   attempt_submit_attendance,
-  attempt_create_poll}
+  attempt_create_poll,
+  attempt_delete_poll}
   from '../../../actions/adminActions.js';
 
 
@@ -32,6 +33,7 @@ const Event = React.createClass({
         submit_attendance={this.props.submit_attendance}
         currentEvent={this.props.currentEvent}
         create_poll={this.props.create_poll}
+        delete_poll={this.props.delete_poll}
 
       />
     );
@@ -83,6 +85,9 @@ const mapDispatchToProps = function(dispatch, ownProps){
     },
     create_poll: function(event, name, options) {
       dispatch(attempt_create_poll(event, name, options));
+    },
+    delete_poll: function(pollID) {
+      dispatch(attempt_delete_poll(pollID));
     }
 
 

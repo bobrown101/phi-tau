@@ -5,8 +5,13 @@ import Section from './Section.js';
 import CursiveHeader from './CursiveHeader.js';
 import CenteredContainer from './CenteredContainer.js';
 import CircularProgess from'./CircularProgress.js';
+import SweetAlert from 'sweetalert-react';
+
 
 let PollForm = React.createClass({
+  getInitialState: function(){
+    return {notifyUsersAlert: false};
+  },
   render: function() {
     let currentPoll = this.props.currentPoll;
     let currentEvent = this.props.currentEvent;
@@ -35,13 +40,27 @@ let PollForm = React.createClass({
       bottomMessage = <h3 className="styled-header">User Who Haven't Voted</h3>;
     }
 
+    let that = this;
+
     return (
 
       <Section>
+
+        <SweetAlert
+          show={that.state.notifyUsersAlert}
+          type="success"
+          title="Success!"
+          text="Notified users"
+          onConfirm={() => this.setState({notifyUsersAlert: false})}
+        />
+
         <CursiveHeader>Poll: {currentPoll.name}</CursiveHeader>
         <div className="hollow button gold medium"
           disabled={userNotVoted.length == 0}
-          onClick={() => this.props.notify_users(currentEvent._id, currentPoll._id)}
+          onClick={() => {
+            this.props.notify_users(currentEvent._id, currentPoll._id);
+            this.setState({notifyUsersAlert: true});
+          }}
           >Notify Users</div>
         <div className="row">
 
@@ -75,11 +94,14 @@ let PollForm = React.createClass({
 
 
           {bottomMessage}
-          {userNotVoted.map(function(obj){
-                  return (
-                    <a>{obj.name}</a>
-                  );
-                })}
+          <ul className="medium-2 medium-offset-5 small-4 small-offset-4">
+            {userNotVoted.map(function(obj){
+              return (
+                <li className="styled-header">{obj.name}</li>
+              );
+            })}
+          </ul>
+
 
         </div>
       </Section>

@@ -450,6 +450,19 @@ module.exports = {
       res.json({success: true, poll: poll});
     });
   },
+  deletePoll: function(req, res){
+    if( ! req.body.pollID){
+      throw(new Error("pollID not provided"));
+    }
+
+    Poll.findById(req.body.pollID).remove().exec(function(err) {
+      if(err){
+        res.json({success: false, message: "Error removing poll"});
+        throw err;
+      }
+      res.json({success: true, message: "Poll deleted successfully"});
+    });
+  },
   voteOnPoll: function(req, res){
     if( ! req.body.eventID){
       throw(new Error("eventID not provided"));

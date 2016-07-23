@@ -1,5 +1,7 @@
 let React = require('react');
 let PropTypes = React.PropTypes;
+// import { push } from 'react-router-redux';
+
 
 // import { Link } from 'react-router';
 import Section from './Section.js';
@@ -32,9 +34,16 @@ let VoteForm = React.createClass({
       <Section >
         {/*<AngledDivider/>*/}
         <SweetAlert
-          show={this.props.failed_attempt}
+          show={this.props.failed_attempt == true}
           type={this.props.failed_attempt? "error" : "success"}
           title={this.props.failed_attempt? "Uh-oh!" : "Success!"}
+          text={this.props.message}
+          onConfirm={() => that.props.clear_status()}
+        />
+        <SweetAlert
+          show={this.props.failed_attempt == false}
+          type={"success"}
+          title={"Success!"}
           text={this.props.message}
           onConfirm={() => that.props.clear_status()}
         />

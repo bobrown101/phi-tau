@@ -181,7 +181,7 @@ let EventForm = React.createClass({
         </div>
       </Section>
 
-      <Section inverted>
+      <div className="small-12 medium-8 medium-offset-2">
         <CursiveHeader>Polls</CursiveHeader>
 
         <table className="stack">
@@ -197,11 +197,11 @@ let EventForm = React.createClass({
               {currentEvent.polls.map(function(listValue){
                 return (
                   <tr key={listValue._id}>
-                    <td><Link to={"/poll/" + currentEvent._id + "/"+ listValue._id}>{listValue.name}</Link></td>
+                    <td><Link to={"/poll/" + currentEvent._id + "/"+ listValue._id} className="styled-inline-link">{listValue.name}</Link></td>
                     <td></td>
                     <td></td>
                     <td>
-
+                      <button className="hollow button gold medium" onClick={() => {that.props.delete_poll(listValue._id)}}>Delete</button>
                     </td>
                   </tr>
                 );
@@ -216,7 +216,7 @@ let EventForm = React.createClass({
           </tbody>
         </table>
 
-      </Section>
+      </div>
 
 
     </div>

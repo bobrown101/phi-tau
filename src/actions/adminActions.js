@@ -386,7 +386,6 @@ export function set_user_attendance_failure(error){
   };
 }
 
-
 export function attempt_create_poll(eventID, pollName, options){
   // console.log("event name: " + event_name);
   return (dispatch, getState) => { // eslint-disable-line
@@ -442,8 +441,54 @@ export function create_poll_failure(error){
   };
 }
 
-//TODO - notify users
+export function attempt_delete_poll(pollID){
+  // console.log("event name: " + event_name);
+  return (dispatch, getState) => { // eslint-disable-line
+    // return dispatch(fetchPosts(subreddit))
+    console.log("attempting to create event");
+    axios({
+      method: 'post',
+      url: '/api/v1/deletePoll',
+      headers: {
+        'x-access-token': getState().authentication.token
+      },
+      data: {
+        pollID
+      }
+    })
+    .then(function (response) {
+      console.log("attempt_delete_poll reponse");
+      console.log(response);
+      if(response.data.success){
 
+        dispatch(delete_poll_success(response.data.message));
+        dispatch(attempt_get_events());
+      }else{
+        dispatch(delete_poll_failure(response.data.message));
+      }
+    })
+    .catch(function (error) {
+      console.log("error delete_poll: ");
+      console.log(error);
+    });
+  };
+}
+
+export function delete_poll_success(poll){
+  return {
+    type: types.DELETE_POLL_SUCCESS,
+    success: true,
+    poll: poll
+  };
+}
+
+export function delete_poll_failure(error){
+  return {
+    type: types.DELETE_POLL_FAILURE,
+    success: false,
+    error: error
+  };
+}
 
 export function attempt_notify_users(eventID, pollID){
   // console.log("event name: " + event_name);

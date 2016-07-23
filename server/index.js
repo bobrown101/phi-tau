@@ -36,6 +36,7 @@ app.post('/api/v1/setUserAttendance', api.authenticateRoute, api.setUserAttendan
 app.post('/api/v1/submitAttendance', api.authenticateRoute, api.submitAttendance);
 app.post('/api/v1/addUserToEvent', api.authenticateRoute, api.addUserToEvent);
 app.post('/api/v1/createPoll', api.authenticateRoute, api.createPoll);
+app.post('/api/v1/deletePoll', api.authenticateRoute, api.deletePoll);
 app.post('/api/v1/notifyUsers', api.notifyUsers);
 app.post('/api/v1/getPoll', api.getPoll);
 app.post('/api/v1/voteOnPoll', api.voteOnPoll);

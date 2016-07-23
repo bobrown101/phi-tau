@@ -213,6 +213,36 @@ table tbody tr:nth-child(even) {
   animation-delay: 2s;
 }
 
+.header-large-text {
+  color: white;
+  letter-spacing: 0.25em;
+  // font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Source Sans Pro', serif;
+  font-size: 3rem;
+  font-weight: 600;
+
+
+  @media only screen and (max-width: 700px) {
+    font-size: 1.5rem;
+  }
+}
+.header-small-text {
+  font-family: 'Source Sans Pro', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  opacity: .7;
+  font-weight: 200;
+  margin-bottom: 1rem;
+  font-weight: 400;
+
+
+  @media only screen and (max-width: 700px) {
+    font-size: 1.2rem;
+  }
+}
+
+
 #header-container {
   background: url('../images/phi-tau-banner.jpg');
   background-size: cover;
@@ -222,21 +252,14 @@ table tbody tr:nth-child(even) {
     padding-bottom: 150px;
     background-color: rgba(0, 0, 0, .7);
     h1 {
-      color: white;
-      letter-spacing: 0.25em;
-      font-size: 1.5rem;
-      margin-bottom: .5rem;
-      font-family: 'Source Sans Pro', serif;
+
     }
     .subheader{
-      font-family: 'Source Sans Pro', serif;
-      font-size: 1.5rem;
-      color: #fff;
-      opacity: .7;
-      font-weight: 200;
+
     }
   }
 }
+
 
 .section-container{
   background: $primary_color;
@@ -269,12 +292,13 @@ table tbody tr:nth-child(even) {
 
   font-weight: 200;
   color: white;
-  letter-spacing: 0.4em
+  letter-spacing: 0.3em
 }
 .normal-header {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
-  letter-spacing: 0.4em
+  letter-spacing: 0.3em;
+  font-weight: 600;
 }
 .styled-header {
   font-family: 'Source Sans Pro', sans-serif;
