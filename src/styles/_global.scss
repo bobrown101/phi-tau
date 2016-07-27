@@ -369,8 +369,7 @@ a.styled-inline-link {
 }
 
 .user-list-item {
-  border-bottom: 1px solid $old_gold;
-  display: block;
+  display: inline-block;
 }
 
 .user-list-name {
@@ -395,8 +394,12 @@ a.styled-inline-link {
   height: 2em;
   margin: 0;
   margin-right: 1em;
+  margin-left: 0 !important;
   color: $old_gold;
   padding-left: 5px;
+  font-size: 1.25rem;
+  font-family: 'Source Sans Pro', sans-serif;
+
 }
 
 .poll-progressbar {

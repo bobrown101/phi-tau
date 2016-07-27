@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import Section from './Section.js';
 import CursiveHeader from './CursiveHeader.js';
 import CenteredContainer from './CenteredContainer.js';
+import SweetAlert from 'sweetalert-react';
+
 
 let AdminForm = React.createClass({
   propTypes: function() {
@@ -20,6 +22,11 @@ let AdminForm = React.createClass({
       newUserPhoneNumber: "",
       newUserPhoneNumberValid: false,
       newEventName: "",
+      confirmFunction: () => {
+        console.info("Never set confirm function for dialog window");
+      },
+      confirmDialogTitle: "Are you sure?",
+      confirmDialogShown: false
       // newPollName: "",
       // newPollOptions: ""
     };
@@ -73,6 +80,12 @@ let AdminForm = React.createClass({
   attempt_notify_users: function(eventID, pollID){
     this.props.attempt_notify_users(eventID, pollID);
   },
+  show_alert: function(){
+    this.setState({confirmDialogShow: true});
+  },
+  close_alert: function(){
+    this.setState({confirmDialogShow: false});
+  },
   render: function() {
 
     let that = this;
@@ -80,14 +93,29 @@ let AdminForm = React.createClass({
     let newUserEmailFormClass = that.state.newUserEmailValid ? "inputValid" : "inputInvalid";
     let newUserPhoneNumberFormClass = that.state.newUserPhoneNumberValid ? "inputValid" : "inputInvalid";
 
-    console.log("button disabled: ", that.state.newUserEmailValid, that.state.newUserPhoneNumberValid, (!that.state.newUserPhoneNumberValid || !that.state.newUserEmailValid));
+    // console.log("button disabled: ", that.state.newUserEmailValid, that.state.newUserPhoneNumberValid, (!that.state.newUserPhoneNumberValid || !that.state.newUserEmailValid));
+
+    // this.setState({confirmDialogFunction: () => {
+    //   console.info("need to actually delete");
+    // }});
 
     return (
 
-      <Section >
+      <Section>
+        <SweetAlert
+          show={this.state.confirmDialogShow}
+          title={this.state.confirmDialogTitle}
+          text={this.state.confirmDialogText}
+          showCancelButton
+          onConfirm={() => {
+            that.state.confirmFunction();
+            that.close_alert();
+          }}
+          onCancel={() => this.close_alert()}
+        />
         <CursiveHeader>Admin</CursiveHeader>
         <CenteredContainer>
-          <h3 className="white styled-header">Rescouncil Members</h3>
+          <h4 className="white normal-header">Rescouncil Members</h4>
             <table className="stack">
               <thead>
                 <tr>
@@ -106,7 +134,19 @@ let AdminForm = React.createClass({
                         <td>{listValue.email}</td>
                         <td>
                           <button className="hollow button gold medium" onClick={() => {
-                              that.props.delete_user(listValue._id);}
+                              console.log("setting state")
+                              that.setState(
+                                {
+                                  confirmFunction: () => {
+                                    console.log("asdfasdf");
+                                    that.props.delete_user(listValue._id);
+                                  },
+                                  confirmDialogTitle: "Are You Sure?",
+                                  confirmDialogText: "If you delete this user they cannot be recovered."
+                                }
+                              );
+                              that.show_alert();
+                            }
                           }>
                           Delete User
                           </button>
@@ -114,17 +154,17 @@ let AdminForm = React.createClass({
                       </tr>
                     );
                   })}
-
                   <tr key="create_new_user_item">
-                    <td><input type="text" placeholder="Name" onChange={this.handleNameChange}/></td>
+                    <td>
+                      <input type="text" placeholder="Name" onChange={this.handleNameChange}/>
+                    </td>
                     <td><input type="text" placeholder="+1-XXX-XXXX" onChange={this.handlePhoneNumberChange} className={newUserPhoneNumberFormClass}/></td>
                     <td><input type="text" placeholder="Email" onChange={this.handleEmailChange} className={newUserEmailFormClass}/></td>
                     <td><button className="hollow button gold medium" onClick={this.addNewUser} disabled={(!that.state.newUserPhoneNumberValid || !that.state.newUserEmailValid)}>Submit New Person</button></td>
                   </tr>
               </tbody>
             </table>
-          <h3 className="white styled-header">Events</h3>
-
+          <h4 className="white normal-header">Events</h4>
           <table className="stack">
             <thead>
               <tr>
@@ -134,7 +174,6 @@ let AdminForm = React.createClass({
               </tr>
             </thead>
             <tbody>
-
                 {this.props.eventsList.map(function(event){
                   return (
                     <tr key={event._id}>
@@ -142,7 +181,22 @@ let AdminForm = React.createClass({
                       <td>{new Date(event.eventTime).toDateString()}</td>
                         <td>
                           <button className="hollow button gold medium" onClick={() => {
-                              that.props.delete_event(event._id);}
+
+
+
+                              console.log("setting state")
+                              that.setState(
+                                {
+                                  confirmFunction: () => {
+                                    console.log("asdfasdf");
+                                    that.props.delete_event(event._id);
+                                  },
+                                  confirmDialogTitle: "Are You Sure?",
+                                  confirmDialogText: "If you delete this event it cannot be recovered."
+                                }
+                              );
+                              that.show_alert();
+                            }
                           }>
                           Delete Event
                           </button>
@@ -156,11 +210,8 @@ let AdminForm = React.createClass({
                   <td></td>
                   <td><a className="hollow button gold small-12 medium" onClick={this.createNewEvent}>Create Event</a></td>
                 </tr>
-
             </tbody>
           </table>
-
-
         </CenteredContainer>
       </Section>
     );
