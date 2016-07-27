@@ -35,9 +35,9 @@ let PollForm = React.createClass({
     let bottomMessage = "";
 
     if(userNotVoted.length == 0){
-      bottomMessage = <h5>Everyone Has Voted!</h5>;
+      bottomMessage = <h5 className="normal-header">Everyone Has Voted!</h5>;
     }else{
-      bottomMessage = <h3 className="styled-header">User Who Haven't Voted</h3>;
+      bottomMessage = <h3 className="normal-header">User Who Haven't Voted</h3>;
     }
 
     let that = this;
