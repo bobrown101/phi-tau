@@ -18,7 +18,7 @@ const LocalHistory = () => {
 
           <h5 className="white styled-header animated fadeInUp delay75">If you have any questions regarding rush and/or rush events, please contact our rush chair: <a className="styled-inline-link">Ian Loomis</a></h5>*/}
           <div className="row animated fadeInUp ">
-            <div className="columns small-10 medium-8 small-offset-1 medium-offset-2">
+            <div className="columns small-12 medium-8 small-offset-0 medium-offset-2">
               <p>
                 Before we were Phi Kappa Tau, we were a local fraternity called Kappa Phi Omega.
               </p>
