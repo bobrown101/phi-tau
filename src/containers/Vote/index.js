@@ -11,7 +11,7 @@ import {
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
-  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+  let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
       results = regex.exec(url);
   if (!results) return null;
   if (!results[2]) return '';
@@ -20,8 +20,13 @@ function getParameterByName(name, url) {
 
 
 const Vote = React.createClass({
+  propTypes: function(){
+    return {
+      attempt_get_poll: React.PropTypes.function.isRequired
+    };
+  },
   componentDidMount: function() {
-    this.props.attempt_get_poll(getParameterByName('pollID'))
+    this.props.attempt_get_poll(getParameterByName('pollID'));
   },
   render: function() {
     return (
@@ -54,7 +59,7 @@ const mapStateToProps = function(store) {
   };
 };
 
-const mapDispatchToProps = function(dispatch, ownProps) {
+const mapDispatchToProps = function(dispatch) {
 
   return {
     cast_vote: function(voteID) {

@@ -1,4 +1,4 @@
-import { browserHistory } from 'react-router';
+// import { browserHistory } from 'react-router';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { routerMiddleware} from 'react-router-redux';

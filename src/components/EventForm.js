@@ -142,7 +142,7 @@ let EventForm = React.createClass({
                       </div>
                       <div className="user-list-item">
                         <input
-                          onClick={() => { console.log("clicked");that.props.set_user_attendance(user, "absent")}}
+                          onClick={() => { console.log("clicked");that.props.set_user_attendance(user, "absent");}}
                           checked={
                             that.userAbsent(currentEvent, user)
                           }
@@ -210,7 +210,7 @@ let EventForm = React.createClass({
                       <td></td>
                       <td></td>
                       <td>
-                        <button className="hollow button gold medium" onClick={() => {that.props.delete_poll(listValue._id)}}>Delete</button>
+                        <button className="hollow button gold medium" onClick={() => {that.props.delete_poll(listValue._id);}}>Delete</button>
                       </td>
                     </tr>
                   );

@@ -134,7 +134,7 @@ let AdminForm = React.createClass({
                         <td>{listValue.email}</td>
                         <td>
                           <button className="hollow button gold medium" onClick={() => {
-                              console.log("setting state")
+                              console.log("setting state");
                               that.setState(
                                 {
                                   confirmFunction: () => {
@@ -184,7 +184,7 @@ let AdminForm = React.createClass({
 
 
 
-                              console.log("setting state")
+                              console.log("setting state");
                               that.setState(
                                 {
                                   confirmFunction: () => {

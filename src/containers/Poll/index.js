@@ -14,8 +14,10 @@ import {
 
 
 const Event = React.createClass({
-  componentDidMount: function(){
-    this.props.get_users();
+  propTypes: function(){
+    return {
+      get_events: React.PropTypes.function.isRequired
+    };
   },
   componentWillMount: function(){
     this.props.get_events();
@@ -24,7 +26,10 @@ const Event = React.createClass({
     setInterval(function() {
       console.log("refreshing data for live-feel");
       that.props.get_events();
-    }, 3000)
+    }, 3000);
+  },
+  componentDidMount: function(){
+    this.props.get_users();
   },
   render: function() {
 
