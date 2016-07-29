@@ -224,7 +224,7 @@ table tbody tr:nth-child(even) {
   font-family: 'Source Sans Pro', serif;
   font-size: 3rem;
   font-weight: 600;
-
+  animation-duration: 2.5s;
 
   @media only screen and (max-width: 700px) {
     font-size: 2rem;
@@ -238,7 +238,7 @@ table tbody tr:nth-child(even) {
   font-weight: 200;
   margin-bottom: 1rem;
   font-weight: 400;
-
+  animation-duration: 2.5s;
 
   @media only screen and (max-width: 700px) {
     font-size: 1.2rem;
@@ -250,6 +250,7 @@ table tbody tr:nth-child(even) {
   background: url('../images/phi-tau-banner.jpg');
   background-size: cover;
   background-position: center;
+  animation-duration: 2s;
   #header {
     padding-top: 150px;
     padding-bottom: 150px;
