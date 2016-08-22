@@ -6,6 +6,7 @@ import HomePage from './containers/HomePage';
 import AboutPage from './components/AboutPage.js';
 import NotFound from './containers/NotFound';
 import Rush from './containers/Rush';
+import LaserTagHome from'./containers/LaserTagHome';
 import LocalHistory from './containers/LocalHistory';
 import NationalHistory from './containers/NationalHistory';
 import ContactPage from './containers/Contact';
@@ -24,6 +25,7 @@ export default (
     <Route path="local-history" component={LocalHistory}/>
     <Route path="national-history" component={NationalHistory}/>
     <Route path="rush" component={Rush}/>
+    <Route path="lasertag" component={LaserTagHome}/>
     <Route path="contact" component={ContactPage}/>
     <Route path="admin-dashboard" component={requireAuthentication(Admin)}/>
     <Route path="event/:eventID" component={requireAuthentication(Event)}/>

@@ -13,9 +13,8 @@ const Rush = () => {
       <Section >
         {/*<AngledDivider/>*/}
         <CursiveHeader>Rush Fall 16</CursiveHeader>
-          <h3 className="white styled-header animated fadeInUp delay05">The rush schedule is below</h3>
+          <img src={require('../../images/rush-poster.png')} />
 
-          <h5 className="white styled-header animated fadeInUp delay75">If you have any questions regarding rush and/or rush events, please contact our rush chair: <a className="styled-inline-link" href="mailto:ian.loomis95@gmail.com">Ian Loomis</a></h5>
 
       </Section>
 

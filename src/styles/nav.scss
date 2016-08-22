@@ -1,14 +1,18 @@
 .top-bar {
+  &.-lasertag {
+    background-color: $lasertag_green !important;
+  }
   background-color: transparent !important;
   height: auto;
   width: 100%;
   min-height: 60px;
+  transition: background-color .5s ease-in-out;
 }
 .left-right-container {
   // Desktop
   display: none;
 
-  @media only screen and (min-width: 700px){
+  @media only screen and (min-width: 800px){
     height: 60px - 16px;
     display: block;
   }
@@ -16,7 +20,7 @@
 
 .top-bar.open .left-right-container{
   // Mobile and only when open
-  @media only screen and (max-width: 700px){
+  @media only screen and (max-width: 800px){
       height: auto;
       text-align: center;
       display: block;
@@ -29,7 +33,7 @@
   width: 10rem;
   margin-left: calc(50% - 5rem);
   /* Desktop Nav */
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 800px) {
     display: inline-block;
     height:inherit;
     width: auto;
@@ -49,7 +53,7 @@
   height:inherit;
   display: inline-block;
   /* Mobile*/
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 800px) {
     display: block;
     height: 3rem;
     text-align: center;
@@ -65,7 +69,7 @@
   width: 2.5rem;
 
   /* Desktop Nav */
-  @media only screen and (min-width: 700px) {
+  @media only screen and (min-width: 800px) {
     display: none;
   }
 }
@@ -133,6 +137,13 @@
 
 }
 
+.email-button.-lasertag {
+  background-color: darken($lasertag_green, 10) !important;
+  &:hover {
+    background-color: rgba(0,0,0,.4) !important;
+    color: white;
+  }
+}
 .email-button {
   margin: 0;
   margin-top: 1px;
@@ -172,7 +183,7 @@
     margin-top: 0px;
   }
   /* Desktop Nav */
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 800px) {
     margin-left: 1.5rem;
   }
 }
