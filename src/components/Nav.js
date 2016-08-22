@@ -43,9 +43,6 @@ const Nav = React.createClass({
                             <Link to="/rush" onClick={this.toggleHamburger} className="link">Rush</Link>
                         </div>
                         <div className="item animated fadeIn">
-                            <Link to="/lasertag" onClick={this.toggleHamburger} className="link">Laser Tag</Link>
-                        </div>
-                        <div className="item animated fadeIn">
                             <a href="https://medium.com/@PhiKappaTau_RIT" onClick={this.toggleHamburger} className="link">Blog</a>
                         </div>
                         <div className="item animated fadeIn">
