@@ -13,7 +13,7 @@ const Rush = () => {
       <Section >
         {/*<AngledDivider/>*/}
         <CursiveHeader>Rush Fall 16</CursiveHeader>
-          <img src={require('../../images/rush-poster.png')} />
+          <img src={require('../../images/rush-banner.jpg')} />
 
 
       </Section>
