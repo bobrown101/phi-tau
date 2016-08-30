@@ -24,7 +24,7 @@ const LocalHistory = () => {
               </p>
               <p>
                 It was founded by a dedicated group of freshman Buisness majors on November 19, 1962 who wanted to offer brotherhood and fraternal life to
-                fellow men on campus without the negative hazing practices so prevelent at the time.
+                fellow men on campus without the negative hazing practices so prevalent at the time.
               </p>
               <p>
                 The four men that founded Kappa Phi Omega were: Bob Mitchell, Ron Sick, John Helms, and Gary Proud.
