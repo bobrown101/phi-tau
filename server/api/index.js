@@ -167,10 +167,10 @@ module.exports = {
   },
   createEvent: function(req, res) {
 
-    User.find({}, function(err, users){
-      if(err){
-        throw err;
-      }
+    // User.find({}, function(err, users){
+    //   if(err){
+    //     throw err;
+    //   }
       if( ! req.body.event_name){
         throw(new Error("event_name not provided"));
       }
@@ -187,7 +187,7 @@ module.exports = {
         res.json({ success: true, event: event });
       });
 
-    });
+    // });
 
   },
   deleteEvent: function(req, res){
