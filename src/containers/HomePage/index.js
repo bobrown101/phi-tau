@@ -38,28 +38,28 @@ const HomePage = () => {
         <div className="row">
           <div className="small-12 large-6 columns small-text-center large-text-left">
             <div className="">
-              <h5 className="white styled-header">President: <a className="styled-inline-link" href="mailto:mark.eddy2121@gmail.com">Mark Eddy</a></h5>
+              <h5 className="white styled-header">President: <a className="styled-inline-link" href="mailto:schuylerradliff@gmail.com">Schuyler Radliff</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">Vice-President: <a className="styled-inline-link" href="mailto:rpirdy323@gmail.com">Robert Pirdy</a></h5>
+              <h5 className="white styled-header">Vice-President: <a className="styled-inline-link" href="mailto:zach.anthony0@gmail.com">Zach Anthony</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link" href="mailto:conormobrien16@gmail.com">Conor O'Brien</a></h5>
+              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link" href="mailto:xavier.thompson95@gmail.com">Xavier Thompson</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">Sergeant at Arms: <a className="styled-inline-link" href="mailto:chris.schara@hotmail.com">Chris Schara</a></h5>
+              <h5 className="white styled-header">Sergeant at Arms: <a className="styled-inline-link" href="mailto:bobrown101@gmail.com">Brady Brown</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">Chaplain: <a className="styled-inline-link" href="mailto:bobrown101@gmail.com">Brady Brown</a></h5>
+              <h5 className="white styled-header">Chaplain: <a className="styled-inline-link" href="mailto:marteluis88@gmail.com">Luis Marte</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">Treasurer: <a className="styled-inline-link" href="mailto:matwell95@gmail.com">Matthew Atwell</a></h5>
+              <h5 className="white styled-header">Treasurer: <a className="styled-inline-link" href="mailto:joseph.h.lorenc@gmail.com">Joseph Lorenc</a></h5>
             </div>
             <div>
               <h5 className="white styled-header">Rush Chair: <a className="styled-inline-link" href="mailto:ian.loomis95@gmail.com">Ian Loomis</a></h5>
             </div>
             <div>
-              <h5 className="white styled-header">Social Chair: <a className="styled-inline-link" href="mailto:bstites1995@gmail.com">Brandon Stites</a></h5>
+              <h5 className="white styled-header">Social Chair: <a className="styled-inline-link" href="mailto:marteluis88@gmail.com">Luis Marte</a></h5>
             </div>
 
           </div>

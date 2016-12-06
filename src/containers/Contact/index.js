@@ -27,12 +27,12 @@ const ContactPage = () => {
           <h5 className="white styled-header animated fadeInUp delay75">If you have any questions regarding rush and/or rush events, please contact our rush chair: <a className="styled-inline-link">Ian Loomis</a></h5>*/}
           <div className="row animated fadeInUp ">
             <div className="columns small-10 medium-8 small-offset-1 medium-offset-2">
-              <h5 className="white styled-header">President: <a className="styled-inline-link" href="mailto:mark.eddy2121@gmail.com">Mark Eddy</a></h5>
-              <h5 className="white styled-header">Vice-President: <a className="styled-inline-link" href="mailto:rpirdy323@gmail.com">Robert Pirdy</a></h5>
-              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link" href="mailto:conormobrien16@gmail.com">Conor O'Brien</a></h5>
-              <h5 className="white styled-header">Sergeant at Arms: <a className="styled-inline-link" href="mailto:chris.schara@hotmail.com">Chris Schara</a></h5>
-              <h5 className="white styled-header">Chaplain: <a className="styled-inline-link" href="mailto:bobrown101@gmail.com">Brady Brown</a></h5>
-              <h5 className="white styled-header">Treasurer: <a className="styled-inline-link" href="mailto:matwell95@gmail.com">Matthew Atwell</a></h5>
+              <h5 className="white styled-header">President: <a className="styled-inline-link" href="mailto:schuylerradliff@gmail.com">Schuyler Radliff</a></h5>
+              <h5 className="white styled-header">Vice-President: <a className="styled-inline-link" href="mailto:zach.anthony0@gmail.com">Zach Anthony</a></h5>
+              <h5 className="white styled-header">2nd Vice-President: <a className="styled-inline-link" href="mailto:xavier.thompson95@gmail.com">Xavier Thompson</a></h5>
+              <h5 className="white styled-header">Sergeant at Arms: <a className="styled-inline-link" href="mailto:bobrown101@gmail.com">Brady Brown</a></h5>
+              <h5 className="white styled-header">Chaplain: <a className="styled-inline-link" href="mailto:marteluis88@gmail.com">Luis Marte</a></h5>
+              <h5 className="white styled-header">Treasurer: <a className="styled-inline-link" href="mailto:joseph.h.lorenc@gmail.com">Joseph Lorenc</a></h5>
               <h5 className="white styled-header">Advisor: <a className="styled-inline-link" href="mailto:Thedonatgammanu@aol.com">Gary Proud</a></h5>
               <h5 className="white styled-header">Advisor: <a className="styled-inline-link" href="mailto:Djpfsa@gmail.com">Dave Panish</a></h5>
 
