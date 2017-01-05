@@ -40,7 +40,7 @@ const Nav = React.createClass({
                             <Link to="/national-history" onClick={this.toggleHamburger} className="link">National History</Link>
                         </div>
                         <div className="item animated fadeIn">
-                            <Link to="/rush" onClick={this.toggleHamburger} className="link">Rush</Link>
+                            <Link to="" onClick={this.toggleHamburger} className="link">Rush</Link>
                         </div>
                         <div className="item animated fadeIn">
                             <a href="https://medium.com/@PhiKappaTau_RIT" onClick={this.toggleHamburger} className="link">Blog</a>

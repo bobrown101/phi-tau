@@ -14,9 +14,9 @@ const HomePage = () => {
       {/*<Section containsDivider>*/}
       <Section >
         {/*<AngledDivider/>*/}
-        <CursiveHeader>Rush Fall 16</CursiveHeader>
+        <CursiveHeader>Rush Spring 17</CursiveHeader>
         <CenteredContainer>
-          <Link to="/rush" className="hollow button gold large margin10" href="#">Find Out More</Link>
+          <Link to="" className="hollow button gold large margin10" href="#">Coming Soon</Link>
         </CenteredContainer>
 
 
